@@ -182,10 +182,10 @@ header.header .logo div{
 #content .cstmreba .pochi_seller, #content .cstmreba .pochi_time{
 	display: inline;
 }
-#content footer .social-share{
+#content .social-share{
 	text-align: center;
 }
-#content footer .social-share a{
+#content .social-share a{
 	display: inline-block;
 	vertical-align: top;
 	position: relative;
@@ -197,18 +197,18 @@ header.header .logo div{
 	line-height: 44px;
 	color: #FFF;
 }
-#content footer .social-share a.facebook{
+#content .social-share a.facebook{
 	font-size: 36px;
 	background: #3B5998;
 }
-#content footer .social-share a.hatebu{
+#content .social-share a.hatebu{
 	font-size: 26px;
 	background: #008fde;
 }
-#content footer .social-share a.line{
+#content .social-share a.line{
 	background: #1dcd00;
 }
-#content footer .social-share a.line .logo{
+#content .social-share a.line .logo{
 	background: #fff;
 	color: #1dcd00;
 	font-weight: bold;
@@ -256,7 +256,7 @@ header.header .logo div{
 	font-size: 11px;
 	color: #AAAAAA;
 }
-#content footer .ad{
+#content .ad{
 	text-align: center;
 	font-size: .8rem;
 	color: #AAAAAA;

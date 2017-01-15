@@ -43,6 +43,8 @@
 					</li>
 				</ul>
 			</div><!-- .entry-meta -->
+			<?php $this->load_parts( array( 'amp-sns' ) ); ?>
+			<?php $this->load_parts( array( 'amp-ad' ) ); ?>
 		</header>
 		<section class="post">
 		<?php echo $this->get( 'post_amp_content' ); // amphtml content; no kses ?>
@@ -53,7 +55,6 @@
 			<?php if(function_exists('related_posts')) {
 				related_posts(array('template' => 'amp/amp-yarpp.php'));
 			}?>
-			<?php $this->load_parts( array( 'amp-ad' ) ); ?>
 		</footer>
 	</article>
 	<footer id="footer">
