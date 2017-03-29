@@ -24,7 +24,7 @@ $title=rawurlencode(get_the_title());
 		<li class="column is-2">
 			<?php
 			if(function_exists('get_scc_twitter')) {
-				echo '<div class="snscount"><a href="https://twitter.com/search?f=tweets&q='.$url_s.'&src=typd" target="_blank" >'.sentry_sns_count_carry( scc_get_share_twitter() ).'</a></div>';
+				echo '<div class="snscount"><a href="https://twitter.com/search?f=tweets&q='.$url.'&src=typd" target="_blank" >'.sentry_sns_count_carry( scc_get_share_twitter() ).'</a></div>';
 			}
 			?>
 			<a class="button is-primary twitter" onclick="window.open('//twitter.com/intent/tweet?url=<?php echo $url; ?>&text=<?php echo $title; ?><?php
