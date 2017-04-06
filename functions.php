@@ -147,6 +147,12 @@ if ( ! function_exists( 'sentry_tag_cloud_filter' ) ) {
 }
 add_filter('widget_tag_cloud_args', 'sentry_tag_cloud_filter', 10, 1);
 
+// コメントしたユーザーのリンクに「target="_blank"」を付与
+function sentry_comment_author_link( $author_link ){
+ return str_replace( "<a", "<a target=\"_blank\"", $author_link );
+}
+add_filter( "get_comment_author_link", "sentry_comment_author_link" );
+
 // except
 if ( ! function_exists( 'sentry_excerpt_length' ) ) {
   function sentry_excerpt_length($length) {
