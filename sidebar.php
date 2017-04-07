@@ -27,7 +27,7 @@
 		<section class="sidebar-widget sentry-promotion">
 			<div class="notification">
 				<img src="<?php echo get_template_directory_uri(); ?>/img/sentry-banner-min.png" />
-			　<span class="caption">このサイトでも仕様中の「"最強"のWordpressテーマ：Sentry」！</span>
+			　<span class="caption">このサイトでも使用中の「"最強"のWordpressテーマ：Sentry」！</span>
 				<a class="button is-primary is-outlined" href="https://ultimate-ez.com/sentry/" target="_blank">詳しく見る</a>
 			</div>
 		</section>
