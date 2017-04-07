@@ -347,7 +347,7 @@ class Se_Popular_Posts extends WP_Widget{
     parent::__construct(
       'se-popular-posts',
       '[S]人気の投稿（タブ表示）',
-      array( 'description' => '日別、月別、トータルの人気記事を表示します。プラグイン「Wordpress Popular Posts」必須です。' )
+      array( 'description' => '週間、月間、トータルの人気記事をタブで表示します。プラグイン「Wordpress Popular Posts」必須です。' )
     );
   }
 
