@@ -186,5 +186,7 @@ jQuery(function($){
     });
     $( '.sentry-slider' ).show();
 
+    /* ヨメレバ、ポチレバ、カエレバのリンクに「target="_blank"」を付与 */
+    $( '.cstmreba a' ).attr( 'target', '_blank');
   });
 });
