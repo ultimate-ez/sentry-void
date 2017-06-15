@@ -56,7 +56,8 @@ function mytheme_customize_register( $wp_customize ){
   $wp_customize->add_control( 'copyright_c', array(
     'section' => 'sentry_section',
     'settings' => 'copyright',
-    'label' => 'サイト公開年（コピーライトの表記に使用します。）',
+    'label' => 'サイト公開年',
+    'description' => 'コピーライトの表記に使用します。',
     'type' => 'text',
     'priority' => 20,
   ));
