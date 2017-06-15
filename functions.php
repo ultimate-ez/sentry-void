@@ -335,4 +335,31 @@ if ( ! function_exists( 'wp_infinite_scroll_js_setting' ) ) {
 }
 add_action( 'wp_footer', 'wp_infinite_scroll_js_setting',100 );
 
+function se_get_part( $input){
+  switch ($input){
+    case "widget":
+      if ( is_active_sidebar( 'se-article-bottom' ) ){
+        dynamic_sidebar( 'se-article-bottom' );
+      }
+      break;
+    case "sns":
+        get_template_part( 'se-sns-large' );
+      break;
+    case "recommend":
+      if(function_exists('related_posts')) {
+        related_posts();
+      }
+      break;
+    case "profile":
+        get_template_part( 'se-profile' );
+      break;
+    case "comment":
+      if ( comments_open() || get_comments_number() ){
+        comments_template();
+		  }
+      break;
+    default:
+      echo "Error:". $input ." is not defined";
+  }
+}
 ?>

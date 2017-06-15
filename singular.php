@@ -90,12 +90,17 @@
 					}
 					?>
 				</div>
-				<?php if ( is_active_sidebar( 'se-article-bottom' ) ) :
-					dynamic_sidebar( 'se-article-bottom' );
-				endif; ?>
-				<?php if ( get_theme_mod( 'article_sns_bottom' ) ) {
-					get_template_part( 'se-sns-large' );
-				}?>
+				<?php if ( !get_theme_mod( 'article_bottom' ) ) {
+					set_theme_mod( 'article_bottom', 'widget,sns,recommend,profile,comment');
+				}
+					$article_bottom = get_theme_mod( 'article_bottom');
+					$article_bottom = explode(',', $article_bottom);
+					$article_bottom = array_filter($article_bottom, "strlen");
+
+					foreach($article_bottom as $value){
+						se_get_part($value);
+					}
+				?>
 				<?php wp_link_pages(); ?>
 			</footer><!-- entry-foot -->
 
@@ -105,15 +110,6 @@
 			// End of the loop
 			endif; ?>
 		</article>
-		<?php if(function_exists('related_posts')) {
-			related_posts();
-		}?>
-		<?php if ( get_theme_mod( 'article_profile' ) ) {
-			get_template_part( 'se-profile' );
-		}?>
-		<?php if ( comments_open() || get_comments_number() ){
-			comments_template();
-		} ?>
 	</main>
 	<div id="sidebar" class="column">
 		<?php get_sidebar(); ?>

@@ -33,34 +33,6 @@ function mytheme_customize_register( $wp_customize ){
     'priority' => 11,
   ));
 
-  // 記事下のSNSボタン
-  $wp_customize->add_setting( 'article_sns_bottom', array(
-    'default' => false,
-    'type' => 'theme_mod',
-    'sanitize_callback' => 'sanitize_checkbox',
-  ));
-  $wp_customize->add_control( 'article_sns_bottom_c', array(
-    'section' => 'sentry_section',
-    'settings' => 'article_sns_bottom',
-    'label' => '記事下のSNSボタンを表示する。',
-    'type' => 'checkbox',
-    'priority' => 12,
-  ));
-
-  // 記事下プロフィール
-  $wp_customize->add_setting( 'article_profile', array(
-    'default' => false,
-    'type' => 'theme_mod',
-    'sanitize_callback' => 'sanitize_checkbox',
-  ));
-  $wp_customize->add_control( 'article_profile_c', array(
-    'section' => 'sentry_section',
-    'settings' => 'article_profile',
-    'label' => '記事下にライターのプロフィールを表示する。',
-    'type' => 'checkbox',
-    'priority' => 15,
-  ));
-
   // Sentryプロモーション
   $wp_customize->add_setting( 'sentry_promotion', array(
     'default' => false,
@@ -87,6 +59,21 @@ function mytheme_customize_register( $wp_customize ){
     'label' => 'サイト公開年（コピーライトの表記に使用します。）',
     'type' => 'text',
     'priority' => 20,
+  ));
+
+  // 記事下コンテンツ
+  $wp_customize->add_setting( 'article_bottom', array(
+    'default' => 'widget,sns,recommend,profile,comment',
+    'type' => 'theme_mod',
+    'sanitize_callback' => 'sanitize_text_field',
+  ));
+  $wp_customize->add_control( 'article_bottom_c', array(
+    'section' => 'sentry_section',
+    'settings' => 'article_bottom',
+    'label' => '記事下コンテンツ',
+    'description' =>'記事下に表示するコンテンツの表示/非表示、並び順を設定します。表示したいコンテンツ名をカンマ区切りで入力してください。設定可能なコンテンツはwidget, sns, recommend, profile, commentです。<br>詳細は<a href="https://ultimate-ez.com/2017/06/15/4723/">こちら</a>',
+    'type' => 'text',
+    'priority' => 19,
   ));
 
   // <head>タグに出力するコード
