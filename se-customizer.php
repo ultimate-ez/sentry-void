@@ -72,7 +72,7 @@ function mytheme_customize_register( $wp_customize ){
     'section' => 'sentry_section',
     'settings' => 'article_bottom',
     'label' => '記事下コンテンツ',
-    'description' =>'記事下に表示するコンテンツの表示/非表示、並び順を設定します。表示したいコンテンツ名をカンマ区切りで入力してください。設定可能なコンテンツはwidget, sns, recommend, profile, commentです。<br>詳細は<a href="https://ultimate-ez.com/2017/06/15/4723/">こちら</a>',
+    'description' =>'記事下に表示するコンテンツの表示/非表示、並び順を設定します。表示したいコンテンツ名をカンマ区切りで入力してください。設定可能なコンテンツはwidget, sns, recommend, profile, commentです。<br>詳細は<a href="https://ultimate-ez.com/2017/06/15/4723/?utm_source=sentry&utm_medium=customizer&utm_campaign='.get_home_url().'" target="_blank">こちら</a>',
     'type' => 'text',
     'priority' => 19,
   ));
