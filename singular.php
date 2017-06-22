@@ -45,7 +45,7 @@
 				dynamic_sidebar( 'se-article-top	' );
 			endif; ?>
 
-			<section class="entry-content" >
+			<section class="entry-content content" >
 
 				<?php the_content(); //本文 ?>
 

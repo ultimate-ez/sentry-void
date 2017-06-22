@@ -210,6 +210,7 @@ if ( ! function_exists( 'sentry_color' ) ) {
     ?>
     <style type="text/css">
       a,
+      article section.entry-content a:not(.button):visited,
       article section.entry-content #toc_container a:hover,
       article section.entry-content h4:before,
       article section.entry-content h5:before,
