@@ -28,7 +28,7 @@
 			<div class="notification">
 				<img src="<?php echo get_template_directory_uri(); ?>/img/sentry-banner-min.png" />
 			　<span class="caption">このサイトでも使用中の「"最強"のWordpressテーマ：Sentry」！</span>
-				<a class="button is-primary is-outlined" href="https://ultimate-ez.com/sentry/" target="_blank">詳しく見る</a>
+				<a class="button is-primary is-outlined" href="https://ultimate-ez.com/sentry/?utm_source=sentry&utm_medium=widget&utm_campaign=<?php echo get_home_url(); ?>" target="_blank">詳しく見る</a>
 			</div>
 		</section>
 	<?php endif; ?>
