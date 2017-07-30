@@ -499,7 +499,7 @@ class Se_Social_Icon extends WP_Widget{
   <p>
     <label for="<?php echo $this->get_field_id('icon'); ?>">アイコン:</label>
     <input class="widefat" id="<?php echo $this->get_field_id('icon'); ?>" name="<?php echo $this->get_field_name('icon'); ?>" type="text" value="<?php echo $icon; ?>">
-    <span>(<a href="http://fontawesome.io/icons/" >FontAwesome</a>のアイコン名を入力してください。（例：Twitterの場合：twitter）</span>
+    <span>(<a href="http://fontawesome.io/icons/" target="_blank" >FontAwesome</a>のアイコン名を入力してください。（例：Twitterの場合：twitter）</span>
   </p>
   <p>
     <label for="<?php echo $this->get_field_id('url'); ?>">URL:</label>
