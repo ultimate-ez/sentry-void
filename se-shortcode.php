@@ -18,7 +18,7 @@ function font_handler ( $atts, $content = null ){
 function post_handler( $atts, $content = null ){
   extract( shortcode_atts( array(
     'id' => 0,
-    'style' => 'thumbnail',
+    'style' => 'related',
   ) ,$atts ));
 
   $outHTML ="";
