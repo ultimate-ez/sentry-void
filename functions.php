@@ -260,6 +260,29 @@ if ( ! function_exists( 'sentry_page_ad' ) ) {
 }
 add_action( 'wp_head', 'sentry_page_ad' );
 
+if ( ! function_exists( 'sentry_pwa_manifest') ) {
+  function sentry_pwa_manifest(){
+    if ( get_theme_mod('pwa_manifest')){
+    ?>
+      <link rel="manifest" href="/manifest.json">
+      <script>
+      window.addEventListener('load', function() {
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register("/serviceWorker.js" )
+            .then(function(registration) {
+              console.log("serviceWorker registed.");
+            }).catch(function(error) {
+              console.warn("serviceWorker error.", error);
+            });
+        }
+      });
+      </script>
+    <?php
+    }
+  }
+}
+add_action( 'wp_head', 'sentry_pwa_manifest' );
+
 // SNS Count 桁数の調整
 if ( ! function_exists( 'sentry_sns_count_carry' ) ) {
   function sentry_sns_count_carry($count) {
