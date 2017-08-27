@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <div id="content" class="container">
-	<div id="inner-content" class="columns is-desktop">
+	<div id="inner-content">
 	<main class="column">
 		<section class="archive">
 			<header class="entry-head">
@@ -11,7 +11,7 @@
 			</section><!-- .entry-content -->
 		</section>
 	</main>
-	<div id="sidebar" class="column">
+	<div id="sidebar">
 		<?php get_sidebar(); ?>
 	</div><!-- #sidebar -->
 </div><!-- #inner-content -->
