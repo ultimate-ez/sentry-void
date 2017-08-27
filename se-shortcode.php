@@ -31,7 +31,7 @@ function post_handler( $atts, $content = null ){
       if ( has_post_thumbnail($id) ){
         $outHTML .= get_the_post_thumbnail( $id, 'related-thumb' );
       }else{
-        $outHTML .= '<img src="' . get_template_directory_uri(). '/img/NoImage_300x200.png" alt="no image" title="no image" width="300" height="200" />';
+        $outHTML .= '<img src="' . get_default_image_uri(300). '" alt="no image" title="no image" width="300" height="200" />';
       }
       $outHTML .= '</figure>';
       $outHTML .= '<div class="post-title">' . get_the_title($id) . '</div>';

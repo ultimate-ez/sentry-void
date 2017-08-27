@@ -22,7 +22,7 @@ Description: YARPP Template for Sentry.
 				if ( has_post_thumbnail() ):
 					the_post_thumbnail( 'related-thumb' );
 				else:
-					echo '<img src="'.get_template_directory_uri().'/img/NoImage_300x200.png" alt="no image" title="no image" width="300" height="200" />';
+					echo '<img src="'.get_default_image_uri().'" alt="no image" title="no image" width="300" height="200" />';
 				endif;
 				?>
 			</figure>

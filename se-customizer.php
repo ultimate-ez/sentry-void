@@ -77,6 +77,31 @@ function mytheme_customize_register( $wp_customize ){
     'priority' => 19,
   ));
 
+  // ダミー画像のカスタマイズ
+  $wp_customize->add_setting( 'dummy_img', array(
+    'type' => 'theme_mod',
+    'sanitize_callback' => 'esc_url_raw',
+  ));
+  $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'dummy_img_c', array(
+    'label' => '一覧用デフォルト画像(384x200)',
+    'section' => 'sentry_section',
+    'settings' =>'dummy_img',
+    'description' => 'サムネイル登録がない記事に対して、一覧ページなどで表示するデフォルト画像を設定します。（384×200ピクセル画像）',
+    'priority' => 5,
+  ) ) );
+
+  $wp_customize->add_setting( 'dummy_img_300', array(
+    'type' => 'theme_mod',
+    'sanitize_callback' => 'esc_url_raw',
+  ));
+  $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'dummy_img_300_c', array(
+    'label' => '一覧用デフォルト画像(300x200)',
+    'section' => 'sentry_section',
+    'settings' =>'dummy_img_300',
+    'description' => 'サムネイル登録がない記事に対して、一覧ページなどで表示するデフォルト画像を設定します。（300×200ピクセル画像）',
+    'priority' => 6,
+  ) ) );
+
   // <head>タグに出力するコード
   $wp_customize->add_setting( 'head_textarea', array(
     'type' => 'theme_mod',

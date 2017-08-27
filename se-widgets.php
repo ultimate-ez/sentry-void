@@ -30,7 +30,7 @@ class Se_Facebook_Widget extends WP_Widget{
   		if ( has_post_thumbnail() ) :
   			the_post_thumbnail('facebook-thumb');
       else:
-        echo '<img width="384" height="200" src="'.get_template_directory_uri().'/img/sentry_384x200.png" >';
+        echo '<img width="384" height="200" src="'.get_default_image_uri().'" >';
       endif;?>
   		</div>
   		<div class="text-box">
@@ -310,7 +310,7 @@ class Se_New_Posts extends WP_Widget{
               if ( has_post_thumbnail() ):
                 the_post_thumbnail( 'related-thumb' );
               else:
-                echo '<img src="'.get_template_directory_uri().'/img/NoImage_300x200.png" alt="no image" title="no image" width="300" height="200" />';
+                echo '<img src="'.get_default_image_uri( 300 ).'" alt="no image" title="no image" width="300" height="200" />';
               endif;
               ?>
             </figure>

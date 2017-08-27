@@ -11,7 +11,7 @@
 					$image_src = wp_get_attachment_image_src(get_post_thumbnail_id(), 'related-thumb', false);
 					echo '<amp-img src="'.$image_src[0].'" width="96" height="64" />';
 				else:
-					echo '<amp-img src="'.get_template_directory_uri().'/img/NoImage_300x200.png" alt="no image" title="no image" width="96" height="64" />';
+					echo '<amp-img src="'.get_default_image_uri().'" alt="no image" title="no image" width="96" height="64" />';
 				endif;
 				?>
 			</figure>

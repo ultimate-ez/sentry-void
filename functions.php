@@ -9,9 +9,12 @@ if (locate_template('/se-widgets.php') !== '') {
 if (locate_template('/se-sidebars.php') !== '') {
     require_once locate_template('/se-sidebars.php');
 }
-
 if (locate_template('/se-shortcode.php') !== ""){
     require_once locate_template('/se-shortcode.php');
+}
+
+if (locate_template('/se-defaultimg.php') !== ""){
+  require_once locate_template('/se-defaultimg.php');
 }
 
 // Content width
