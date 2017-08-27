@@ -123,9 +123,15 @@ header.header .logo div{
 }
 #content h3{
 	font-weight: bold;
-  border-left: 4px solid #f5f7fa;
+  border-left: 4px solid #aaaaaa;
   padding: .6rem 0 .6rem .8rem;
   margin: 1.6rem 0 .8rem;
+}
+#content h4, #content h5, #content h6{
+	font-weight: bold;
+	margin: 1.6rem 0 .8rem;
+	padding: .6rem 0 .4rem .4rem;
+	border-bottom: 2px solid #aaaaaa;
 }
 #content blockquote{
 	padding: 1rem;
