@@ -7,7 +7,7 @@ Template Name: シングルカラム
 <div id="content" class="container">
 	<?php get_template_part( 'se-breadcrumb' );?>
 	<div id="inner-content">
-	<main>
+	<main class="single">
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
 			<?php
 			// start the loop
@@ -120,7 +120,7 @@ Template Name: シングルカラム
 			comments_template();
 		} ?>
 	</main>
-	<div id="sidebar">
+	<div id="sidebar" class="single">
 		<?php get_sidebar(); ?>
 	</div><!-- #sidebar -->
 </div><!-- #inner-content -->

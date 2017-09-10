@@ -7,7 +7,7 @@ Template Name: シングルカラム（SNSボタンのみ表示、サイドバ�
 <div id="content" class="container">
 	<?php get_template_part( 'se-breadcrumb' );?>
 	<div id="inner-content">
-	<main>
+	<main class="single">
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
 			<?php
 			// start the loop
