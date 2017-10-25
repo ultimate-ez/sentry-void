@@ -394,6 +394,7 @@ class Se_Popular_Posts extends WP_Widget{
             'limit' => $count,
             'post_type' => 'post',
             'stats_comments' => '0',
+      			'stats_date' => '1',
             'stats_date_format' => "Y.n.j",
             'thumbnail_width' => '300',
             'thumbnail_height' => '200',
@@ -403,7 +404,7 @@ class Se_Popular_Posts extends WP_Widget{
                   <figure class="thumbnail">{thumb_img}</figure>
                   <div class="content">
                   {text_title}
-                  <span class="post-stats"><time>{date}</time> | {stats}</span>
+                  <span class="post-stats"><time>{date}</time> | {views}<small>views</small></span>
                   </div>
                 </a>
               </li>
@@ -421,6 +422,7 @@ class Se_Popular_Posts extends WP_Widget{
             'limit' => $count,
             'post_type' => 'post',
             'stats_comments' => '0',
+      			'stats_date' => '1',
             'stats_date_format' => "Y.n.j",
             'thumbnail_width' => '300',
             'thumbnail_height' => '200',
@@ -430,7 +432,7 @@ class Se_Popular_Posts extends WP_Widget{
                   <figure class="thumbnail">{thumb_img}</figure>
                   <div class="content">
                   {text_title}
-                  <span class="post-stats"><time>{date}</time> | {stats}</span>
+                  <span class="post-stats"><time>{date}</time> | {views}<small>views</small></span>
                   </div>
                 </a>
               </li>
@@ -448,6 +450,7 @@ class Se_Popular_Posts extends WP_Widget{
             'limit' => $count,
             'post_type' => 'post',
             'stats_comments' => '0',
+      			'stats_date' => '1',
             'stats_date_format' => "Y.n.j",
             'thumbnail_width' => '300',
             'thumbnail_height' => '200',
@@ -457,7 +460,7 @@ class Se_Popular_Posts extends WP_Widget{
                   <figure class="thumbnail">{thumb_img}</figure>
                   <div class="content">
                   {text_title}
-                  <span class="post-stats"><time>{date}</time> | {stats}</span>
+                  <span class="post-stats"><time>{date}</time> | {views}<small>views</small></span>
                   </div>
                 </a>
               </li>
