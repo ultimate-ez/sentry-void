@@ -110,7 +110,7 @@ add_filter( 'get_the_archive_title', 'sentry_archive_title', 10 );
 // Youtubeレスポンシブ化
 if ( ! function_exists( 'media_responsive' ) ) {
   function media_responsive( $html, $url, $attr, $post_ID ) {
-      if ( ( strstr( $url,'youtube' ) ) || ( strstr( $url,'vimeo' ) ) ) {
+      if ( ( strstr( $url,'youtube' ) ) || ( strstr( $url,'youtu.be' ) ) || ( strstr( $url,'vimeo' ) ) ) {
       	$return = '<div class="video-container">'.$html.'</div>';
       } elseif ( strstr( $url,'vine' ) ){
         $return = '<div class="video-container square">'.$html.'</div>';
