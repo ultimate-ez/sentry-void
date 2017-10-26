@@ -188,5 +188,8 @@ jQuery(function($){
 
     /* ヨメレバ、ポチレバ、カエレバのリンクに「target="_blank"」を付与 */
     $( '.cstmreba a' ).attr( 'target', '_blank');
+
+    /* Wordpress Popular Postsのデフォルト画像を変更する*/
+    $('img[src$="/wordpress-popular-posts/no_thumb.jpg"]').attr('src','/wp-content/themes/sentry-void/img/NoImage_300x200.png');
   });
 });
