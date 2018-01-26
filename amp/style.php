@@ -306,3 +306,7 @@ header.header .logo div{
 	padding: 16px 20px;
 	margin-bottom: 20px;
 }
+<?php
+if ( get_theme_mod( 'amp-customcss' ) !=  '' ) {
+	echo get_theme_mod( 'amp-customcss' );
+} ?>

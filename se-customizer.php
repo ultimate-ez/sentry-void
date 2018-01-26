@@ -207,6 +207,18 @@ function mytheme_customize_register( $wp_customize ){
     'priority' => 22,
   ));
 
+  // AMP用カスタムCSS
+  $wp_customize->add_setting( 'amp-customcss', array(
+    'type' => 'theme_mod',
+  ));
+  $wp_customize->add_control( 'amp-customcss_c', array(
+    'section' => 'sentry_amp_section',
+    'settings' => 'amp-customcss',
+    'label' => 'AMP用のカスタムCSS',
+    'type' => 'textarea',
+    'priority' => 30,
+  ));
+
   // PWAの設定
   $wp_customize->add_section( 'sentry_pwa_section', array(
     'title' => 'PWA設定',
