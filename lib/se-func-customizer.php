@@ -206,7 +206,7 @@ function mytheme_customize_register( $wp_customize ){
     'type' => 'text',
     'priority' => 22,
   ));
-
+  
   // AMP用カスタムCSS
   $wp_customize->add_setting( 'amp-customcss', array(
     'type' => 'theme_mod',
