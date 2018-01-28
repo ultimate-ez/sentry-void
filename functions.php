@@ -20,6 +20,11 @@ if (locate_template('/se-defaultimg.php') !== ""){
 // Content width
 if ( !isset( $content_width ) ) { $content_width = 720; }
 
+function wp_theme_version() {
+  $theme = wp_get_theme(get_template());
+  return $theme->Version;
+}
+
 add_theme_support( 'title-tag' );
 add_theme_support( 'custom-logo', array(
   'width' => 600,
@@ -58,7 +63,7 @@ if ( ! function_exists( 'sentry_enqueue_script' ) ) {
 
     wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
     wp_enqueue_style( 'bluma', '//cdnjs.cloudflare.com/ajax/libs/bulma/0.1.0/css/bulma.css' );
-    wp_enqueue_style( 'sentry', get_template_directory_uri().'/css/sentry.css' );
+    wp_enqueue_style( 'sentry', get_template_directory_uri().'/css/sentry.css', array(), wp_theme_version(), false );
     wp_enqueue_style( 'yakuhan', '//cdn.rawgit.com/qrac/yakuhanjp/master/dist/css/yakuhanjp.css');
     wp_enqueue_style( 'sentry-custom', get_stylesheet_uri() );
 
