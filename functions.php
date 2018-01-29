@@ -4,6 +4,8 @@ require_once ('lib/se-func-init.php');
 
 require_once ('lib/se-func-customizer.php');
 
+require_once ('lib/se-func-custom-css.php');
+
 require_once ('lib/se-func-widgets.php');
 
 require_once ('lib/se-func-sidebars.php');

@@ -49,7 +49,10 @@ if ( ! function_exists( 'sentry_enqueue_script' ) ) {
     wp_enqueue_style( 'bluma', '//cdnjs.cloudflare.com/ajax/libs/bulma/0.1.0/css/bulma.css' );
     wp_enqueue_style( 'sentry', get_template_directory_uri().'/css/sentry.css', array(), wp_theme_version(), false );
     wp_enqueue_style( 'yakuhan', '//cdn.rawgit.com/qrac/yakuhanjp/master/dist/css/yakuhanjp.css');
-    wp_enqueue_style( 'sentry-custom', get_stylesheet_uri() );
+
+    wp_add_inline_style( 'sentry', sentry_custom_css() );
+
+    wp_enqueue_style( 'sentry-custom', get_stylesheet_uri(), 'sentry', wp_theme_version(), false  );
 
     /* infinitescroll */
     wp_register_script( 'wp_infinite_scroll',  get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array('jquery'), null, true );
@@ -145,60 +148,6 @@ if ( ! function_exists( 'sentry_excerpt_more' ) ) {
 }
 add_filter( 'excerpt_more',   'sentry_excerpt_more');
 add_filter( 'excerpt_length', 'sentry_excerpt_length');
-
-if ( ! function_exists( 'sentry_color' ) ) {
-  function sentry_color(){
-
-    $defaultColor = '#F7786B';
-
-    if ( get_theme_mod( 'sentry-color' ) != "" ){
-      $primaryColor = esc_attr( get_theme_mod( 'sentry-color' ));
-    } else{
-      $primaryColor = $defaultColor;
-    }
-    ?>
-    <style type="text/css">
-      a,
-      article section.entry-content a:not(.button):visited,
-      article section.entry-content #toc_container a:hover,
-      article section.entry-content h4:before,
-      article section.entry-content h5:before,
-      article section.entry-content h6:before,
-      article footer.entry-foot .tags a,
-      article#notfound h1 i.fa,
-      .profile a:hover
-       {
-        color: <?php echo $primaryColor; ?>;
-      }
-      .header,
-      nav .sentry-nav .hidden-links,
-      article section.entry-content h2,
-      .sentry-widget h1,
-      article section.entry-content .pochireba .pochi_info .pochi_price,
-      article footer.entry-foot .categories a,
-      .main-loop li a .post-info .category,
-      #nav-below .page-numbers.next,
-      .sentry-widget td a,
-      .sentry-widget .tagcloud a:hover,
-      .sentry-widget #se_popular_posts .tabs li.is-active,
-      #comments #comment_submit,
-      main.home section.popular-posts ul.wpp-list li a .content .post-text:before,
-      .slick-dots li.slick-active button,
-      .sentry-widget #wp-calendar td a,
-      article .entry-content .short-posts a .tag,
-      .wpcf7 .wpcf7-submit{
-        background: <?php echo $primaryColor; ?>;
-      }
-      article section.entry-content h3,
-      article footer.entry-foot .tags a,
-      .sentry-widget #se_popular_posts .tabs li.is-active {
-        border-color: <?php echo $primaryColor; ?>;
-      }
-    </style>
-  <?php
-  }
-}
-add_action( 'wp_head', 'sentry_color' );
 
 // Checkbox用サニタイズ
 if ( ! function_exists( 'sanitize_checkbox' ) ) {
