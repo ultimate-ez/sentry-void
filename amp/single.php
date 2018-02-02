@@ -5,6 +5,9 @@
 	<script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script>
 	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
 	<?php do_action( 'amp_post_template_head', $this ); ?>
+	<?php if ( ( get_theme_mod ('amp-client') != "") && ( get_theme_mod ('amp-slot') != "" ) ) : ?>
+		<script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+	<?php endif; ?>
 	<style amp-custom>
 	<?php $this->load_parts( array( 'style' ) ); ?>
 	<?php do_action( 'amp_post_template_css', $this ); ?>
@@ -44,7 +47,7 @@
 				</ul>
 			</div><!-- .entry-meta -->
 			<?php $this->load_parts( array( 'amp-sns' ) ); ?>
-			<?php $this->load_parts( array( 'amp-ad' ) ); ?>
+			<?php $this->load_parts( array( 'amp-ad-head' ) ); ?>
 		</header>
 		<section class="post">
 		<?php echo $this->get( 'post_amp_content' ); // amphtml content; no kses ?>
