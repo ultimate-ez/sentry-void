@@ -52,4 +52,10 @@ function se_get_part( $input){
       echo "Error:". $input ." is not defined";
   }
 }
+
+require 'theme-update-checker.php';
+$example_update_checker = new ThemeUpdateChecker(
+  'sentry-void-master',
+  'https://ultimate-ez.com/update-info.json'
+);
 ?>
