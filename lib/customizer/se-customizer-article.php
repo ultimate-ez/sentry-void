@@ -3,7 +3,7 @@ function sentry_customize_register_article( $wp_customize ){
 
   $wp_customize->add_section( 'sentry_article_section', array(
     'title' => '[Sentry]投稿ページ設定',
-    'priority' => 20,
+    'priority' => 40,
   ));
 
   // 投稿ページのフォントサイズ

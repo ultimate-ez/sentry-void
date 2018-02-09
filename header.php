@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+<?php if ( get_theme_mod ('sentry-google-tagmanager') != ""){
+	get_template_part( 'inc/se-gtm-head');
+}  ?>
+<?php if ( get_theme_mod ('sentry-google-analytics') != ""){
+	get_template_part( 'inc/se-ga');
+}  ?>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" >
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<meta name="format-detection" content="telephone=no" >
@@ -8,6 +14,9 @@
 	<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?> >
+	<?php if (get_theme_mod ('sentry-google-tagmanager') != ""){
+		get_template_part( 'inc/se-gtm-body');
+	} ?>
 		<header class="header" role="banner">
 			<div class="container">
 			<div class="columns">

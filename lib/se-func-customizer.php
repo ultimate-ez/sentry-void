@@ -2,6 +2,8 @@
 
 require_once ('customizer/se-customizer-general.php');
 
+require_once ('customizer/se-customizer-analytics.php');
+
 require_once ('customizer/se-customizer-article.php');
 
 require_once ('customizer/se-customizer-sns.php');
