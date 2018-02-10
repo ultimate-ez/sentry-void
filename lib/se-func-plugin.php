@@ -94,4 +94,22 @@ function sentry_feedly_subscribers($url) {
   return  sentry_sns_count_carry($subscribers);
 }
 
+//wppサムネイル取得先変更
+function change_wpp_thumb( $post_html, $p, $instance ) {
+  if (has_post_thumbnail($p->id)){
+    $thumb_id = get_post_thumbnail_id($p->id);
+    $thumb_array = wp_get_attachment_image_src( $thumb_id, 'related-thumb');
+    $thumb = $thumb_array[0];
+  } else{
+    if ( get_theme_mod ( 'dummy_img_300') ){
+      $thumb = esc_url( get_theme_mod( 'dummy_img_300') );
+    } else {
+      $thumb = get_template_directory_uri().'/img/NoImage_300x200.png';
+    }
+  }
+	$new_post_html = preg_replace('!<img(.+?)? src="[^"]+"(.+?)>!', '<img$1 src="' . $thumb . '"$2>', $post_html );
+	return $new_post_html;
+}
+add_filter( 'wpp_post', 'change_wpp_thumb', 10, 3 );
+
 ?>
