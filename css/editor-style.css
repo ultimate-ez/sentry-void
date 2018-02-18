@@ -1,0 +1,30 @@
+.marker.thin.yellow{
+  background: linear-gradient(transparent 66%, #ffff00 66%);
+}
+.marker.thick.yellow{
+  background: linear-gradient(transparent 6%, #ffff00 6%);
+}
+.marker.thin.pink{
+  background: linear-gradient(transparent 66%, #ff66ff 66%);
+}
+.marker.thick.pink{
+  background: linear-gradient(transparent 6%, #ff66ff 6%);
+}
+.marker.thin.blue{
+  background: linear-gradient(transparent 66%, #66ccff 66%);
+}
+.marker.thick.blue{
+  background: linear-gradient(transparent 6%, #66ccff 6%);
+}
+.marker.thin.green{
+  background: linear-gradient(transparent 66%, #7cfc00 66%);
+}
+.marker.thick.green{
+  background: linear-gradient(transparent 6%, #7cfc00 6%);
+}
+.marker.thin.orange{
+  background: linear-gradient(transparent 66%, #ffa500 66%);
+}
+.marker.thick.orange{
+  background: linear-gradient(transparent 6%, #ffa500 6%);
+}

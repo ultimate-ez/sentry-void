@@ -16,6 +16,8 @@ require_once ('lib/se-func-defaultimg.php');
 
 require_once ('lib/se-func-plugin.php');
 
+require_once ('lib/se-func-mce-customize.php');
+
 if ( ! function_exists( 'sentry_page_ad' ) ) {
   function sentry_page_ad(){
     if ( get_theme_mod( 'head_textarea' ) !=  '' ) {
