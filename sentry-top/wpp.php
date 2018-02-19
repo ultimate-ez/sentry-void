@@ -24,6 +24,22 @@
 				</li>
 			',
 		);
+
+		$view_isHidden = absint( get_theme_mod( 'sentry_wpp_is_hidden', false ) );
+		if ($view_isHidden){
+			$wpp['post_html'] = '
+				<li>
+					<a href= "{url}">
+						<div class="content">
+						<div class="post-text">{text_title}</div>
+						<span class="post-stats"><time>{date}</time></span>
+						</div>
+						<figure class="thumbnail">{thumb_img}</figure>
+					</a>
+				</li>
+			';
+		}
+
 		wpp_get_mostpopular($wpp);
 	}?>
 </section>

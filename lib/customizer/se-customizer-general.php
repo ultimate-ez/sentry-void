@@ -72,6 +72,20 @@ function sentry_customize_register_general( $wp_customize ){
   ));
 
   // Sentryプロモーション
+  $wp_customize->add_setting( 'sentry_wpp_is_hidden', array(
+    'default' => false,
+    'type' => 'theme_mod',
+    'sanitize_callback' => 'sanitize_checkbox',
+  ));
+  $wp_customize->add_control( 'sentry_wpp_is_hidden_c', array(
+    'section' => 'sentry_section',
+    'settings' => 'sentry_wpp_is_hidden',
+    'label' => 'Wordpress Popular Postsのview数を表示しない。',
+    'type' => 'checkbox',
+    'priority' => 60,
+  ));
+
+  // Sentryプロモーション
   $wp_customize->add_setting( 'sentry_promotion', array(
     'default' => false,
     'type' => 'theme_mod',

@@ -410,6 +410,7 @@ class Se_Popular_Posts extends WP_Widget{
               </li>
             ',
           );
+          $wpp = $this->wpp_check_view_isHidden($wpp);
           wpp_get_mostpopular($wpp);
         }?>
       </div>
@@ -438,6 +439,7 @@ class Se_Popular_Posts extends WP_Widget{
               </li>
             ',
           );
+          $wpp = $this->wpp_check_view_isHidden($wpp);
           wpp_get_mostpopular($wpp);
         }?>
       </div>
@@ -466,6 +468,7 @@ class Se_Popular_Posts extends WP_Widget{
               </li>
             ',
           );
+          $wpp = $this->wpp_check_view_isHidden($wpp);
           wpp_get_mostpopular($wpp);
         }?>
       </div>
@@ -482,6 +485,24 @@ class Se_Popular_Posts extends WP_Widget{
     $instance['count'] = trim($new_instance['count']);
 
     return $instance;
+  }
+
+  function wpp_check_view_isHidden( $wpp ){
+    $view_isHidden = absint( get_theme_mod( 'sentry_wpp_is_hidden', false ) );
+		if ($view_isHidden){
+			$wpp['post_html'] = '
+      <li class="thumblist">
+        <a href= "{url}">
+          <figure class="thumbnail">{thumb_img}</figure>
+          <div class="content">
+          {text_title}
+          <span class="post-stats"><time>{date}</time></span>
+          </div>
+        </a>
+      </li>
+			';
+		}
+    return $wpp;
   }
 }
 
