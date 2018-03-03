@@ -1,6 +1,6 @@
 <div class="sentry-bottom-nav">
   <ul>
-  <?php if ( is_single() && get_theme_mod( 'article_sns_bottom' ) ) : ?>
+  <?php if ( is_single() ) : ?>
     <li id="btn-share"><a href="#sns" title="このページを共有する"><i class="fa  fa-share-alt"></i></a></li>
   <?php endif; ?>
     <li id="btn-top"><a href="#top" title="ページトップヘ"><i class="fa fa-long-arrow-up"></i></a></li>

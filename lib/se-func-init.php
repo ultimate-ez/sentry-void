@@ -41,7 +41,7 @@ remove_action( 'wp_print_styles', 'print_emoji_styles' ); // 絵文字
 
 if ( ! function_exists( 'sentry_enqueue_script' ) ) {
   function sentry_enqueue_script() {
-    wp_enqueue_script( 'sentry', get_template_directory_uri() . '/js/sentry.js' , array('jquery'), null, true);
+    wp_enqueue_script( 'sentry', get_template_directory_uri() . '/js/sentry.js' , array('jquery'), wp_theme_version(), true);
     wp_enqueue_script( 'fitslider', get_template_directory_uri() . '/js/jquery.fit-sidebar.js', array('jquery'), null, true);
     wp_enqueue_script( 'slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), null, true);
 

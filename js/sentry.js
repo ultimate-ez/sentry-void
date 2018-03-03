@@ -125,13 +125,17 @@ jQuery(function($){
       return false;
     });
 
-    $('#btn-share').click(function(){
-      $('body,html').animate({scrollTop:$('#sns-share-bottom').offset().top});
-      setTimeout(function(){
-        $seHeader.addClass( $hiddenClass );
-      },600);
-      return false;
-    });
+    if ( $('#sns-share-bottom').length > 0 ){
+      $('#btn-share').click(function(){
+        $('body,html').animate({scrollTop:$('#sns-share-bottom').offset().top});
+        setTimeout(function(){
+          $seHeader.addClass( $hiddenClass );
+        },600);
+        return false;
+      });
+    } else {
+      $('#btn-share').css("display", "none");
+    }
 
     /* Comment Customize */
      $('#comments .pagination a').addClass('button');
@@ -189,7 +193,6 @@ jQuery(function($){
     /* ヨメレバ、ポチレバ、カエレバのリンクに「target="_blank"」を付与 */
     $( '.cstmreba a' ).attr( 'target', '_blank');
 
-    /* Wordpress Popular Postsのデフォルト画像を変更する*/
     $('img[src$="/wordpress-popular-posts/no_thumb.jpg"]').attr('src','/wp-content/themes/sentry-void/img/NoImage_300x200.png');
   });
 });
