@@ -7,96 +7,157 @@
         {
             init: function(editor, url)
             {
-                editor.addButton(
-                    'marker_button',{
-                        title: 'マーカーを引く',
-                        type: 'menubutton',
-                        // icon: 'sentry-icon-marker-yellow-thin',
-                        image : url.replace('/js','') + '/img/icon-marker.png',
-                        menu: [
-                          {
-                            text: "黄色・太マーカー",
-                            onclick: function() {
-                              selected_text = editor.selection.getContent();
-                              return_text = '<span class="marker yellow thick">' + selected_text + '</span>';
-                              editor.execCommand( 'mceInsertContent', 0, return_text );
-                            }
-                          },
-                          {
-                            text: "黄色・細マーカー",
-                            onclick: function() {
-                              selected_text = editor.selection.getContent();
-                              return_text = '<span class="marker yellow thin">' + selected_text + '</span>';
-                              editor.execCommand( 'mceInsertContent', 0, return_text );
-                            }
-                          },
-                          {
-                            text: "赤・太マーカー",
-                            onclick: function() {
-                              selected_text = editor.selection.getContent();
-                              return_text = '<span class="marker pink thick">' + selected_text + '</span>';
-                              editor.execCommand( 'mceInsertContent', 0, return_text );
-                            }
-                          },
-                          {
-                            text: "赤・細マーカー",
-                            onclick: function() {
-                              selected_text = editor.selection.getContent();
-                              return_text = '<span class="marker pink thin">' + selected_text + '</span>';
-                              editor.execCommand( 'mceInsertContent', 0, return_text );
-                            }
-                          },
-                          {
-                            text: "青・太マーカー",
-                            onclick: function() {
-                              selected_text = editor.selection.getContent();
-                              return_text = '<span class="marker blue thick">' + selected_text + '</span>';
-                              editor.execCommand( 'mceInsertContent', 0, return_text );
-                            }
-                          },
-                          {
-                            text: "青・細マーカー",
-                            onclick: function() {
-                              selected_text = editor.selection.getContent();
-                              return_text = '<span class="marker blue thin">' + selected_text + '</span>';
-                              editor.execCommand( 'mceInsertContent', 0, return_text );
-                            }
-                          },
-                          {
-                            text: "緑・太マーカー",
-                            onclick: function() {
-                              selected_text = editor.selection.getContent();
-                              return_text = '<span class="marker green thick">' + selected_text + '</span>';
-                              editor.execCommand( 'mceInsertContent', 0, return_text );
-                            }
-                          },
-                          {
-                            text: "緑・細マーカー",
-                            onclick: function() {
-                              selected_text = editor.selection.getContent();
-                              return_text = '<span class="marker green thin">' + selected_text + '</span>';
-                              editor.execCommand( 'mceInsertContent', 0, return_text );
-                            }
-                          },
-                          {
-                            text: "オレンジ・太マーカー",
-                            onclick: function() {
-                              selected_text = editor.selection.getContent();
-                              return_text = '<span class="marker orange thick">' + selected_text + '</span>';
-                              editor.execCommand( 'mceInsertContent', 0, return_text );
-                            }
-                          },
-                          {
-                            text: "オレンジ・細マーカー",
-                            onclick: function() {
-                              selected_text = editor.selection.getContent();
-                              return_text = '<span class="marker orange thin">' + selected_text + '</span>';
-                              editor.execCommand( 'mceInsertContent', 0, return_text );
-                            }
-                          },
-                        ]
+                editor.addButton( 'marker_button',{
+                  title: 'マーカーを引く',
+                  type: 'menubutton',
+                  image : url.replace('/js','') + '/img/icon-marker.png',
+                  menu: [
+                    {
+                      text: "黄色・太マーカー",
+                      onclick: function() {
+                        selected_text = editor.selection.getContent();
+                        return_text = '<span class="marker yellow thick">' + selected_text + '</span>';
+                        editor.execCommand( 'mceInsertContent', 0, return_text );
+                      }
                     },
-                  );
+                    {
+                      text: "黄色・細マーカー",
+                      onclick: function() {
+                        selected_text = editor.selection.getContent();
+                        return_text = '<span class="marker yellow thin">' + selected_text + '</span>';
+                        editor.execCommand( 'mceInsertContent', 0, return_text );
+                      }
+                    },
+                    {
+                      text: "赤・太マーカー",
+                      onclick: function() {
+                        selected_text = editor.selection.getContent();
+                        return_text = '<span class="marker pink thick">' + selected_text + '</span>';
+                        editor.execCommand( 'mceInsertContent', 0, return_text );
+                      }
+                    },
+                    {
+                      text: "赤・細マーカー",
+                      onclick: function() {
+                        selected_text = editor.selection.getContent();
+                        return_text = '<span class="marker pink thin">' + selected_text + '</span>';
+                        editor.execCommand( 'mceInsertContent', 0, return_text );
+                      }
+                    },
+                    {
+                      text: "青・太マーカー",
+                      onclick: function() {
+                        selected_text = editor.selection.getContent();
+                        return_text = '<span class="marker blue thick">' + selected_text + '</span>';
+                        editor.execCommand( 'mceInsertContent', 0, return_text );
+                      }
+                    },
+                    {
+                      text: "青・細マーカー",
+                      onclick: function() {
+                        selected_text = editor.selection.getContent();
+                        return_text = '<span class="marker blue thin">' + selected_text + '</span>';
+                        editor.execCommand( 'mceInsertContent', 0, return_text );
+                      }
+                    },
+                    {
+                      text: "緑・太マーカー",
+                      onclick: function() {
+                        selected_text = editor.selection.getContent();
+                        return_text = '<span class="marker green thick">' + selected_text + '</span>';
+                        editor.execCommand( 'mceInsertContent', 0, return_text );
+                      }
+                    },
+                    {
+                      text: "緑・細マーカー",
+                      onclick: function() {
+                        selected_text = editor.selection.getContent();
+                        return_text = '<span class="marker green thin">' + selected_text + '</span>';
+                        editor.execCommand( 'mceInsertContent', 0, return_text );
+                      }
+                    },
+                    {
+                      text: "オレンジ・太マーカー",
+                      onclick: function() {
+                        selected_text = editor.selection.getContent();
+                        return_text = '<span class="marker orange thick">' + selected_text + '</span>';
+                        editor.execCommand( 'mceInsertContent', 0, return_text );
+                      }
+                    },
+                    {
+                      text: "オレンジ・細マーカー",
+                      onclick: function() {
+                        selected_text = editor.selection.getContent();
+                        return_text = '<span class="marker orange thin">' + selected_text + '</span>';
+                        editor.execCommand( 'mceInsertContent', 0, return_text );
+                      }
+                    },
+                  ]
+                });
+                editor.addButton( 'notification_button',{
+                  title: 'ボックスで囲む',
+                  type: 'menubutton',
+                  image : url.replace('/js','') + '/img/icon-notification.png',
+                  menu: [
+                    {
+                      text: "ボックス（notication)",
+                      onclick: function() {
+                        selected_text = editor.selection.getContent();
+                        return_text = '<div class="notification">' + selected_text + '</div>';
+                        editor.execCommand( 'mceInsertContent', 0, return_text );
+                      }
+                    },
+                    {
+                      text: "ボックス（notication):青",
+                      onclick: function() {
+                        selected_text = editor.selection.getContent();
+                        return_text = '<div class="notification is-info">' + selected_text + '</div>';
+                        editor.execCommand( 'mceInsertContent', 0, return_text );
+                      }
+                    },
+                    {
+                      text: "ボックス（notication):緑",
+                      onclick: function() {
+                        selected_text = editor.selection.getContent();
+                        return_text = '<div class="notification is-success">' + selected_text + '</div>';
+                        editor.execCommand( 'mceInsertContent', 0, return_text );
+                      }
+                    },
+                    {
+                      text: "ボックス（notication):黄色",
+                      onclick: function() {
+                        selected_text = editor.selection.getContent();
+                        return_text = '<div class="notification is-warning">' + selected_text + '</div>';
+                        editor.execCommand( 'mceInsertContent', 0, return_text );
+                      }
+                    },
+                    {
+                      text: "ボックス（notication):赤",
+                      onclick: function() {
+                        selected_text = editor.selection.getContent();
+                        return_text = '<div class="notification is-danger">' + selected_text + '</div>';
+                        editor.execCommand( 'mceInsertContent', 0, return_text );
+                      }
+                    },
+                    {
+                      text: "ボックス（notication):ターコイズ",
+                      onclick: function() {
+                        selected_text = editor.selection.getContent();
+                        return_text = '<div class="notification is-primary">' + selected_text + '</div>';
+                        editor.execCommand( 'mceInsertContent', 0, return_text );
+                      }
+                    },
+                  ]
+                });
+                editor.addButton( 'insertHtml_button',{
+                  title: 'HTMLを挿入',
+                  icon: 'code',
+                  cmd: 'insertHtml_cmd'
+                });
+                editor.addCommand( 'insertHtml_cmd', function(){
+                  var raw_html = window.prompt( 'HTMLを挿入する');
+                  editor.execCommand( 'mceInsertContent', 0, raw_html);
+                });
             },
             createControl: function(n,cm)
             {
