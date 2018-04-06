@@ -158,6 +158,52 @@
                   var raw_html = window.prompt( 'HTMLを挿入する');
                   editor.execCommand( 'mceInsertContent', 0, raw_html);
                 });
+                editor.addButton( 'balloon_left', {
+                  title: '左から吹き出し',
+                  type: 'menubutton',
+                  image : url.replace('/js','') + '/img/icon-bubble-l.png',
+                  menu: [
+                    {
+                      text: "吹き出し:スタイル①",
+                      onclick: function() {
+                        selected_text = editor.selection.getContent();
+                        return_text = '<div class="balloon left"><div class="balloon-image"> i <div class="balloon-image-description">名前</div></div><div class="balloon-text">' + selected_text + '</div></div>';
+                        editor.execCommand( 'mceInsertContent', 0, return_text );
+                      }
+                    },
+                    {
+                      text: "吹き出し:スタイル②",
+                      onclick: function() {
+                        selected_text = editor.selection.getContent();
+                        return_text = '<div class="balloon left"><div class="balloon-image circle"> i <div class="balloon-image-description">名前</div></div><div class="balloon-text">' + selected_text + '</div></div>';
+                        editor.execCommand( 'mceInsertContent', 0, return_text );
+                      }
+                    },
+                  ]
+                });
+                editor.addButton( 'balloon_right', {
+                  title: '右から吹き出し',
+                  type: 'menubutton',
+                  image : url.replace('/js','') + '/img/icon-bubble-r.png',
+                  menu: [
+                    {
+                      text: "吹き出し:パターン①",
+                      onclick: function() {
+                        selected_text = editor.selection.getContent();
+                        return_text = '<div class="balloon right"><div class="balloon-text">' + selected_text + '</div><div class="balloon-image"> i <div class="balloon-image-description">名前</div></div></div>';
+                        editor.execCommand( 'mceInsertContent', 0, return_text );
+                      }
+                    },
+                    {
+                      text: "吹き出し:パターン②",
+                      onclick: function() {
+                        selected_text = editor.selection.getContent();
+                        return_text = '<div class="balloon right"><div class="balloon-text">' + selected_text + '</div><div class="balloon-image circle"> i <div class="balloon-image-description">名前</div></div></div>';
+                        editor.execCommand( 'mceInsertContent', 0, return_text );
+                      }
+                    },
+                  ]
+                });
             },
             createControl: function(n,cm)
             {

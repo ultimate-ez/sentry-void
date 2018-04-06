@@ -10,6 +10,8 @@
       array_push( $buttons, 'marker_button' );
       array_push( $buttons, 'notification_button' );
       array_push( $buttons, 'insertHtml_button' );
+      array_push( $buttons, 'balloon_left');
+      array_push( $buttons, 'balloon_right');
 
       return $buttons;
   }

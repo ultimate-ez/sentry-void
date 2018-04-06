@@ -71,10 +71,31 @@ function sentry_ad_handler ( $atts ){
     get_template_part( 'se-in-article-ad' );
     return ob_get_clean();
 }
+function sentry_bubble_handler( $atts, $content = null ){
+  extract ( shortcode_atts( array(
+    'name' => get_the_author(),
+    'img' => '',
+    'type' => 'left',
+    'style' => 'normal',
+  ), $atts ));
+  if ( $img =='' ){
+    $author = get_the_author_meta('ID');
+    $author_img_url = get_avatar($author);
+  } else {
+    $author_img_url ='<img src="' . esc_attr($img) . '">';
+  }
+  // return '<span class="marker ' . esc_attr($color) . ' ' . esc_attr($style) . '">' . $content . '</span>';
+  if ( $type == 'right' ){
+    return '<div class="balloon right"><div class="balloon-text">'. $content .'</div><div class="balloon-image '. esc_attr($style) .'">' . $author_img_url . '<div class="balloon-image-description">' . esc_attr($name) . '</div></div></div>';
+  } else {
+    return '<div class="balloon left"><div class="balloon-image '. esc_attr($style) .'">' . $author_img_url . '<div class="balloon-image-description">' . esc_attr($name) . '</div></div><div class="balloon-text">'. $content .'</div></div>';
+  }
+}
 
 add_shortcode( 'marker', 'marker_handler' );
 add_shortcode( 'font', 'font_handler' );
 add_shortcode( 'post', 'post_handler' );
 add_shortcode( 'notification', 'notification_handler');
 add_shortcode( 'ad', 'sentry_ad_handler' );
+add_shortcode( 'bubble', 'sentry_bubble_handler');
 ?>
