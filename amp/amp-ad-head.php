@@ -2,9 +2,8 @@
 <div class="ad">
 <div>スポンサードリンク</div>
 <amp-ad
-	layout="responsive"
-	width=300
-	height=200
+	layout="fixed-height"
+	height=100
 	type="adsense"
 	data-ad-client="<?php echo esc_attr( get_theme_mod( 'amp-client' ) ); ?>"
 	data-ad-slot="<?php echo esc_attr( get_theme_mod( 'amp-slot' ) ); ?>"
