@@ -4,7 +4,8 @@
 	$item_cnt = 15;
 
 	$args = array(
-		'posts_per_page' => $item_cnt
+		'posts_per_page' => $item_cnt,
+		"no_found_rows"  => true,
 	);
 
 	$the_query = new WP_Query($args); ?>

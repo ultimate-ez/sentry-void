@@ -7,6 +7,7 @@
 		'order' => 'DESC',
 		'post_type' => 'post',
 		'post_status' => 'publish',
+		"no_found_rows"       => true,
 	);
 	$the_query = new WP_Query($args); ?>
 	<?php if ( $the_query -> have_posts() ) : ?>

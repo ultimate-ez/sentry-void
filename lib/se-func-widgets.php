@@ -296,6 +296,7 @@ class Se_New_Posts extends WP_Widget{
       $postquery = array(
         'posts_per_page' => $count,
         'ignore_sticky_posts' => 1,
+        "no_found_rows"       => true,
       );
       $posts = new WP_Query($postquery);
       ?>
