@@ -11,6 +11,7 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<meta name="format-detection" content="telephone=no" >
 	<?php if ( is_singular() ) wp_enqueue_script( "comment-reply" ); ?>
+	<?php get_template_part( 'inc/se-ogp' ); ?>
 	<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?> >

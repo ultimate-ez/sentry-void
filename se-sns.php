@@ -81,7 +81,7 @@ $title=rawurlencode(get_the_title());
 			}
 			?>
 			<a class="button is-primary line" target="_blank" href="//line.me/R/msg/text/?<?php echo get_the_title() . '%0D%0A' . get_permalink();
-				if ( get_theme_mod( 'sentry_account_line_sharetext' ) ) {
+				if ( get_theme_mod( 'sentry_account_line' ) !=  '' ) {
 					echo '%0D%0D';
 					echo bloginfo('name') .'の公式LINEアカウント%0Dhttps://line.me/ti/p/@' . stripslashes( get_theme_mod( 'sentry_account_line' ) );
 				} ?>">
