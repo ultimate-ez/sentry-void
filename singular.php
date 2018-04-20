@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <div id="content" class="container">
-	<?php get_template_part( 'se-breadcrumb' );?>
+	<?php get_template_part( 'parts/se-breadcrumb' );?>
 	<div id="inner-content">
 	<main>
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
@@ -36,7 +36,7 @@
 
 				<h1 class="title entry-title"><?php the_title_attribute(); //タイトル ?></h1>
 				<?php if ( get_theme_mod( 'article_sns_top' ) ) {
-					get_template_part( 'se-sns' );
+					get_template_part( 'parts/se-sns' );
 				}?>
 
 			</header><!-- .entry-head -->

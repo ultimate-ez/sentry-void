@@ -5,7 +5,7 @@ Template Name: シングルカラム（SNS・サイドバー・広告なし）
 ?>
 <?php get_header(); ?>
 <div id="content" class="container">
-	<?php get_template_part( 'se-breadcrumb' );?>
+	<?php get_template_part( 'parts/se-breadcrumb' );?>
 	<div id="inner-content">
 	<main class="single">
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >

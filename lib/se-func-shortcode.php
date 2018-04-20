@@ -68,7 +68,7 @@ function notification_handler ( $atts, $content = null ){
 
 function sentry_ad_handler ( $atts ){
     ob_start();
-    get_template_part( 'se-in-article-ad' );
+    get_template_part( 'parts/se-in-article-ad' );
     return ob_get_clean();
 }
 function sentry_bubble_handler( $atts, $content = null ){

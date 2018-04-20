@@ -35,7 +35,7 @@ function se_get_part( $input){
       }
       break;
     case "sns":
-        get_template_part( 'se-sns-large' );
+        get_template_part( 'parts/se-sns-large' );
       break;
     case "recommend":
       if(function_exists('related_posts')) {
@@ -43,7 +43,7 @@ function se_get_part( $input){
       }
       break;
     case "profile":
-        get_template_part( 'se-profile' );
+        get_template_part( 'parts/se-profile' );
       break;
     case "comment":
       if ( comments_open() || get_comments_number() ){
@@ -51,7 +51,7 @@ function se_get_part( $input){
 		  }
       break;
     case "matched_unit":
-        get_template_part( 'se-matched-unit' );
+        get_template_part( 'parts/se-matched-unit' );
       break;
     default:
       echo "Error:". $input ." is not defined";

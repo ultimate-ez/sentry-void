@@ -49,6 +49,6 @@
     </div>
   </div>
 </footer>
-<?php get_template_part( 'se-breadcrumb', 'json' ); ?>
+<?php get_template_part( 'inc/se-breadcrumb', 'json-ld' ); ?>
 <?php wp_footer(); ?>
 </body></html>
