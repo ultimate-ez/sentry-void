@@ -53,6 +53,7 @@
 		<footer>
 			<?php $this->load_parts( array( 'amp-ad' ) ); ?>
 			<?php $this->load_parts( array( 'amp-sns' ) ); ?>
+			<?php $this->load_parts( array( 'amp-ad-matched' ) ); ?>
 			<?php if(function_exists('related_posts')) {
 				related_posts(array('template' => 'amp/amp-yarpp.php'));
 			}?>

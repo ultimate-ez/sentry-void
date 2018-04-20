@@ -50,6 +50,9 @@ function se_get_part( $input){
         comments_template();
 		  }
       break;
+    case "matched_unit":
+        get_template_part( 'se-matched-unit' );
+      break;
     default:
       echo "Error:". $input ." is not defined";
   }

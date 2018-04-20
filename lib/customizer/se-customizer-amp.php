@@ -29,6 +29,7 @@ function sentry_customize_register_amp( $wp_customize ){
     'type' => 'text',
     'priority' => 20,
   ));
+
   $wp_customize->add_setting( 'amp-client', array(
     'type' => 'theme_mod',
     'sanitize_callback' => 'sanitize_text_field',
@@ -40,14 +41,15 @@ function sentry_customize_register_amp( $wp_customize ){
   $wp_customize->add_control( 'amp-client_c', array(
     'section' => 'sentry_amp_section',
     'settings' => 'amp-client',
-    'label' => 'AMPページ向け広告(data-ad-clients)',
+    'label' => 'AMPページ向け広告',
+    'description' => 'data-ad-clients',
     'type' => 'text',
     'priority' => 21,
   ));
   $wp_customize->add_control( 'amp-slot_c', array(
     'section' => 'sentry_amp_section',
     'settings' => 'amp-slot',
-    'label' => 'AMPページ向け広告(data-ad-slot)',
+    'description' => 'data-ad-slot',
     'type' => 'text',
     'priority' => 22,
   ));
@@ -63,6 +65,32 @@ function sentry_customize_register_amp( $wp_customize ){
     'type' => 'textarea',
     'priority' => 30,
   ));
+
+  // AMP向け関連コンテンツユニット
+  $wp_customize->add_setting( 'amp-matched-client', array(
+    'type' => 'theme_mod',
+    'sanitize_callback' => 'sanitize_text_field',
+  ));
+  $wp_customize->add_setting( 'amp-matched-slot', array(
+    'type' => 'theme_mod',
+    'sanitize_callback' => 'sanitize_text_field',
+  ));
+  $wp_customize->add_control( 'amp-matched-client_c', array(
+    'section' => 'sentry_amp_section',
+    'settings' => 'amp-matched-client',
+    'label' => 'AMPページ向け関連コンテンツユニット',
+    'description' => 'data-ad-clients',
+    'type' => 'text',
+    'priority' => 41,
+  ));
+  $wp_customize->add_control( 'amp-matched-slot_c', array(
+    'section' => 'sentry_amp_section',
+    'settings' => 'amp-matched-slot',
+    'description' => 'data-ad-slot',
+    'type' => 'text',
+    'priority' => 42,
+  ));
+
 }
 add_action( 'customize_register', 'sentry_customize_register_amp' );
 ?>
