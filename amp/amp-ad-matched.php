@@ -5,8 +5,8 @@
 	layout="fixed-height"
 	height=1221
 	type="adsense"
-	data-ad-client="<?php echo esc_attr( get_theme_mod( 'amp-client' ) ); ?>"
-	data-ad-slot="<?php echo esc_attr( get_theme_mod( 'amp-slot' ) ); ?>" >
+	data-ad-client="<?php echo esc_attr( get_theme_mod( 'amp-matched-client' ) ); ?>"
+	data-ad-slot="<?php echo esc_attr( get_theme_mod( 'amp-matched-slot' ) ); ?>" >
 </amp-ad>
 </section>
 <?php endif; ?>
