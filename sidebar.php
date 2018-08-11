@@ -15,22 +15,13 @@
 <?php endif; ?>
 
 <?php if ( is_active_sidebar( 'se-sidebar-ad' ) ) : ?>
-	<aside class="sidebar-ad">
-		<span class="title">スポンサードリンク</span>
+	<aside class="ad">
+		<span class="ad-label">スポンサードリンク</span>
 	<?php dynamic_sidebar( 'se-sidebar-ad' ); ?>
 	</aside>
 <?php endif; ?>
 <?php if ( is_active_sidebar( 'sidebar' ) ) : ?>
 	<div class="sidebar-main <?php if ( !is_home() && !is_front_page() ){ echo "sticky"; } ?>">
 	<?php dynamic_sidebar( 'sidebar' ); ?>
-	<?php if ( !get_theme_mod( 'sentry_promotion' ) ) : ?>
-		<section class="sidebar-widget sentry-promotion">
-			<div class="notification">
-				<img src="<?php echo get_template_directory_uri(); ?>/img/sentry-banner-min.png" />
-			　<span class="caption">このサイトでも使用中の「"最強"のWordpressテーマ：Sentry」！</span>
-				<a class="button is-primary is-outlined" href="https://ultimate-ez.com/sentry/?utm_source=sentry&utm_medium=widget&utm_campaign=<?php echo get_home_url(); ?>" target="_blank">詳しく見る</a>
-			</div>
-		</section>
-	<?php endif; ?>
 	</div>
 <?php endif; ?>

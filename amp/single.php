@@ -29,19 +29,21 @@
 			<h1 class="amp-wp-title"><?php echo wp_kses_data( $this->get( 'post_title' ) ); ?></h1>
 			<div class="entry-meta" >
 				<ul>
+					<li>
 					<?php
 					$categories = get_the_category();
 					$output = '';
 
 					if ( $categories ) {
 						foreach( $categories as $category ) {
-							$output .= '<li><a href="' . get_category_link( $category->term_id )
+							$output .= '<a href="' . get_category_link( $category->term_id )
 							. '" title="' . $category->name
-							. '">' . $category->name . '</a></li>';
+							. '">' . $category->name . '</a>';
 						}
 						echo $output;
 					}
 					?>
+					</li>
 				</ul>
 			</div><!-- .entry-meta -->
 			<?php $this->load_parts( array( 'amp-sns' ) ); ?>

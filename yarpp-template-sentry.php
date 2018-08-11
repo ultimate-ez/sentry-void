@@ -9,7 +9,7 @@ Description: YARPP Template for Sentry.
 <h2>Recommend<span class="small">おすすめ記事</span></h2>
 <?php if (have_posts()):?>
 <?php $loopcount = 0; ?>
-<ul class="related-list columns is-mobile is-multiline">
+<ul class="related-list grid is-mobile is-multiline">
 	<?php while (have_posts()) : the_post(); ?>
 	<li class="column is-half-mobile is-one-third-tablet is-one-quarter-desktop">
 
@@ -22,7 +22,7 @@ Description: YARPP Template for Sentry.
 				if ( has_post_thumbnail() ):
 					the_post_thumbnail( 'related-thumb' );
 				else:
-					echo '<img src="'.get_default_image_uri().'" alt="no image" title="no image" width="300" height="200" />';
+					echo '<img src="'.get_template_directory_uri().'/img/NoImage_300x200.png" alt="no image" title="no image" width="300" height="200" />';
 				endif;
 				?>
 			</figure>

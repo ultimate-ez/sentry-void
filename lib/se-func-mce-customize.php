@@ -1,6 +1,5 @@
 <?php
   function sentry_add_editor_style() {
-    add_editor_style( '//cdnjs.cloudflare.com/ajax/libs/bulma/0.1.0/css/bulma.css' );
     add_editor_style( get_template_directory_uri().'/css/editor-style.css?v=' . wp_theme_version() );
   }
   add_action('admin_init', 'sentry_add_editor_style');
@@ -36,18 +35,22 @@
 
     $defaultColor = '#F7786B';
     $primaryColor = esc_html( get_theme_mod( 'sentry-color', $defaultColor ) );
-    $defaultFontSize = '15';
-    $fontSize = absint( get_theme_mod( 'article_font_size', '16' ) );
+
+    $defaultFontSize = '16';
+    $fontSize = absint( get_theme_mod( 'article_font_size', $defaultFontSize ) );
     $fontSizeH2 = absint( $fontSize*1.25);
+
+    $contentHeadlineStyle = "default";
 
     $output = '';
 
-    $output .= "body#tinymce a{ color:{$primaryColor};}";
-    $output .= "body#tinymce h2{ background:{$primaryColor};}";
-    $output .= "body#tinymce h3{ border-color:{$primaryColor};}";
+    $output .= "body#tinymce a{ color: {$primaryColor};}";
 
     $output .= "body#tinymce{font-size: {$fontSize}px;}";
-    $output .= "body#tinymce h2{font-size: {$fontSizeH2}px;}";
+
+    if ( $contentHeadlineStyle == "default" ){
+      $output .= "body#tinymce h2{font-size: {$fontSizeH2}px;line-height: 1;padding: 1rem;margin-top: 1.8rem;margin-bottom: 1rem;color: #fff;background: {$primaryColor};border-radius: 5px;}";
+    }
 
     return str_replace("\r\n", '', $output);
   }

@@ -5,14 +5,14 @@ $url_s = rawurlencode( $parse_url['host'].$parse_url['path'] );
 $title=rawurlencode(get_the_title());
 ?>
 
-<div id="sns-share-bottom" class="sns-share sns-share-large">
+<div class="sns-share sns-share-large">
 	<h2>Share<span class="small">この記事をシェアしよう！</span></h2>
-	<ul class="columns is-multiline is-mobile">
-
+	<ul class="columns grid is-multiline is-mobile">
+	<?php $sns_button_class = "button is-large is-fill"; ?>
 		<!--Facebookボタン-->
-		<li class="column is-half-mobile is-one-third-tablet">
-			<a class="button is-primary facebook" target="_blank" href="//www.facebook.com/sharer.php?src=bm&u=<?php echo get_permalink();?>">
-				<i class="fa fa-facebook"></i>
+		<li class="column is-6 is-4-tablet">
+			<a class="<?php echo $sns_button_class; ?> facebook" target="_blank" href="//www.facebook.com/sharer.php?src=bm&u=<?php echo get_permalink();?>">
+				<i class="fab fa-facebook-f"></i>
 				<span class="sharetext">いいね</span>
 				<?php
 				if(function_exists('get_scc_facebook')) {
@@ -24,14 +24,14 @@ $title=rawurlencode(get_the_title());
 		</li>
 
 		<!--ツイートボタン-->
-		<li class="column is-half-mobile is-one-third-tablet">
-			<a class="button is-primary twitter" onclick="window.open('//twitter.com/intent/tweet?url=<?php echo $url; ?>&text=<?php echo $title; ?><?php
+		<li class="column is-6 is-4-tablet">
+			<a class="<?php echo $sns_button_class; ?>  twitter" onclick="window.open('//twitter.com/intent/tweet?url=<?php echo $url; ?>&text=<?php echo $title; ?><?php
 				if ( get_theme_mod( 'sentry_account_twitter' ) !=  '' ) {
 					echo '&via=';
 					echo esc_attr( get_theme_mod( 'sentry_account_twitter' ) );
 				} ?>
 				&tw_p=tweetbutton', '', 'width=500,height=450'); return false;">
-				<i class="fa fa-twitter"></i>
+				<i class="fab fa-twitter"></i>
 				<span class="sharetext">ツイート</span>
 				<?php
 				if(function_exists('get_scc_twitter')) {
@@ -42,8 +42,8 @@ $title=rawurlencode(get_the_title());
 		</li>
 
 		<!--はてブボタン-->
-		<li class="column is-half-mobile is-one-third-tablet">
-			<a class="button is-primary hatebu" target="_blank" href="https://b.hatena.ne.jp/add?mode=confirm&url=<?php echo $url ?>&title=<?php echo $title ?>" onclick="window.open(this.href, 'HBwindow', 'width=600, height=400, menubar=no, toolbar=no, scrollbars=yes'); return false;" target="_blank">
+		<li class="column is-6 is-4-tablet">
+			<a class="<?php echo $sns_button_class; ?> hatebu" target="_blank" href="https://b.hatena.ne.jp/add?mode=confirm&url=<?php echo $url ?>&title=<?php echo $title ?>" onclick="window.open(this.href, 'HBwindow', 'width=600, height=400, menubar=no, toolbar=no, scrollbars=yes'); return false;" target="_blank">
 				<i class="fa se-hatebu"></i>
 				<span class="sharetext">はてブ</span>
 				<?php if(function_exists('get_scc_hatebu')) {
@@ -54,9 +54,9 @@ $title=rawurlencode(get_the_title());
 			<script type="text/javascript" src="//b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
 		</li>
 		<!--Google+1ボタン-->
-		<li class="column is-half-mobile is-one-third-tablet">
-			<a class="button is-primary googleplus" target="_blank" href="https://plus.google.com/share?url=<?php echo get_permalink();?>">
-				<i class="fa fa-google-plus"></i>
+		<li class="column is-6 is-4-tablet">
+			<a class="<?php echo $sns_button_class; ?> googleplus" target="_blank" href="https://plus.google.com/share?url=<?php echo get_permalink();?>">
+				<i class="fab fa-google-plus-g"></i>
 				<span class="sharetext">+1</span>
 				<?php
 				if(function_exists('get_scc_gplus')) {
@@ -67,9 +67,9 @@ $title=rawurlencode(get_the_title());
 		</li>
 
 		<!--ポケットボタン-->
-		<li class="column is-half-mobile is-one-third-tablet">
-			<a class="button is-primary pocket" onclick="window.open('//getpocket.com/edit?url=<?php echo $url;?>&title=<?php echo $title;?>', '', 'width=500,height=350'); return false;">
-				<i class="fa fa-get-pocket"></i>
+		<li class="column is-6 is-4-tablet">
+			<a class="<?php echo $sns_button_class; ?> pocket" onclick="window.open('//getpocket.com/edit?url=<?php echo $url;?>&title=<?php echo $title;?>', '', 'width=500,height=350'); return false;">
+				<i class="fab fa-get-pocket"></i>
 				<span class="sharetext">Pocket</span>
 				<?php
 				if(function_exists('get_scc_pocket')) {
@@ -80,8 +80,8 @@ $title=rawurlencode(get_the_title());
 		</li>
 
 		<!--LINEボタン-->
-		<li class="column is-half-mobile is-one-third-tablet">
-			<a class="button is-primary line" target="_blank" href="//line.me/R/msg/text/?<?php echo get_the_title() . '%0D%0A' . get_permalink();
+		<li class="column is-6 is-4-tablet">
+			<a class="<?php echo $sns_button_class; ?> line" target="_blank" href="//line.me/R/msg/text/?<?php echo get_the_title() . '%0D%0A' . get_permalink();
 			if ( get_theme_mod( 'sentry_account_line' ) !=  '' ) {
 				echo '%0D%0D';
 				echo bloginfo('name') .'の公式LINEアカウント%0Dhttps://line.me/ti/p/@' . stripslashes( get_theme_mod( 'sentry_account_line' ) );

@@ -5,9 +5,9 @@ Template Name: シングルカラム
 ?>
 <?php get_header(); ?>
 <div id="content" class="container">
-	<?php get_template_part( 'parts/se-breadcrumb' );?>
+	<?php get_template_part( 'se-breadcrumb' );?>
 	<div id="inner-content">
-	<main class="single">
+	<main>
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
 			<?php
 			// start the loop
@@ -41,7 +41,7 @@ Template Name: シングルカラム
 
 				<h1 class="title entry-title"><?php the_title_attribute(); //タイトル ?></h1>
 				<?php if ( get_theme_mod( 'article_sns_top' ) ) {
-					get_template_part( 'parts/se-sns' );
+					get_template_part( 'se-sns' );
 				}?>
 
 			</header><!-- .entry-head -->
@@ -57,11 +57,9 @@ Template Name: シングルカラム
 			</section><!-- .entry-content -->
 
 			<?php if ( is_active_sidebar( 'se-article-ad' ) ) :?>
-				<aside class="article_ad">
-					<span class="title">スポンサードリンク</span>
-					<div class="is-flex-widescreen">
+				<aside class="ad is-horizon">
+					<span class="ad-label">スポンサードリンク</span>
 						<?php dynamic_sidebar( 'se-article-ad' );	?>
-					</div>
 				</aside>
 			<?php endif; ?>
 			<footer class="entry-foot">
@@ -99,7 +97,7 @@ Template Name: シングルカラム
 					dynamic_sidebar( 'se-article-bottom' );
 				endif; ?>
 				<?php if ( get_theme_mod( 'article_sns_bottom' ) ) {
-					get_template_part( 'parts/se-sns-large' );
+					get_template_part( 'se-sns-large' );
 				}?>
 				<?php wp_link_pages(); ?>
 			</footer><!-- entry-foot -->
@@ -114,13 +112,13 @@ Template Name: シングルカラム
 			related_posts();
 		}?>
 		<?php if ( get_theme_mod( 'article_profile' ) ) {
-			get_template_part( 'parts/se-profile' );
+			get_template_part( 'se-profile' );
 		}?>
 		<?php if ( comments_open() || get_comments_number() ){
 			comments_template();
 		} ?>
 	</main>
-	<div id="sidebar" class="single">
+	<div id="sidebar">
 		<?php get_sidebar(); ?>
 	</div><!-- #sidebar -->
 </div><!-- #inner-content -->

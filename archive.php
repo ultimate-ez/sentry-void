@@ -1,19 +1,24 @@
 <?php get_header(); ?>
-<div id="content" class="container">
-	<div id="inner-content">
-	<main class="column">
+<div class="container grid main-2-column">
+	<main class="content grid-content">
 		<section class="archive">
 			<header class="entry-head">
 				<h1><?php the_archive_title(); ?></h1>
 			</header>
 			<section class="entry-content" >
 				<?php get_template_part( 'se-loop' ); ?>
+				<!-- <nav id="nav-below"> -->
+				<nav id="more-button">
+					<?php echo paginate_links( array(
+						// 'next_text' => '次の'.get_option('posts_per_page').'件を読み込む',
+						'next_text' => 'もっと見る'
+					)); ?>
+				</nav>
 			</section><!-- .entry-content -->
 		</section>
 	</main>
-	<div id="sidebar">
+	<div id="sidebar" class="grid-sidebar">
 		<?php get_sidebar(); ?>
 	</div><!-- #sidebar -->
-</div><!-- #inner-content -->
 </div><!-- #content -->
 <?php get_footer(); ?>

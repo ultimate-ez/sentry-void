@@ -1,6 +1,6 @@
 <?php if ( is_single() || is_page() ) : ?>
  <?php if ( comments_open() ) : ?>
-  <section id="comments">
+  <section class="comment" >
     <h2>Comments<span class="small">この記事についたコメント</span></h2>
     <?php if ( have_comments() ) : ?>
      <div><i class="fa fa-comment" aria-hidden="true"></i> <?php comments_number(); ?></div>
@@ -14,7 +14,8 @@
 
      <ul class="commentlist">
         <?php wp_list_comments( array(
-       'avatar_size'=> 48
+       'avatar_size'=> 96,
+       'callback'=>'custom_comment_list'
       )); ?>
     </ul>
     <?php endif; // have_comments() ?>
@@ -55,3 +56,27 @@
   </section><!-- #comments -->
  <?php endif; ?>
 <?php endif; ?>
+
+<?php
+function custom_comment_list($comment, $args, $depth) {
+    $GLOBALS['comment'] = $comment; ?>
+    
+    <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
+        <div class="balloon left">
+          <div class="balloon-image is-circle">
+            <?php echo get_avatar($comment); ?>
+            <div class="balloon-image-description">
+              <?php echo get_comment_author(); ?>
+            </div>
+          </div>
+          <div class="balloon-text has-foot-line">
+            <?php comment_text() ?>
+            <div class="foot-line">
+              <?php echo get_comment_date() ?> <?php echo get_comment_time() ?>
+            </div>
+          </div>
+        </div>
+    </li>
+    <?php 
+}
+?>

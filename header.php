@@ -18,10 +18,9 @@
 	<?php if (get_theme_mod ('sentry-google-tagmanager') != ""){
 		get_template_part( 'inc/se-gtm-body');
 	} ?>
-		<header class="header" role="banner">
-			<div class="container">
-			<div class="columns">
-			<div class="logo column is-two-thirds-tablet">
+		<header class="global-header" role="banner">
+			<div class="global-header-content container">
+			<div class="logo">
 			<?php if ( get_custom_logo() ): ?>
 				<?php the_custom_logo(); ?>
 			<?php else: ?>
@@ -34,24 +33,17 @@
 
 			</div><!-- .logo -->
 
-			<div class="social-icons column is-one-third-tablet is-hidden-touch">
+			<div class="sns-icons optional-nav">
 				<?php
 				if ( is_active_sidebar( 'se-social-icon' ) ) :
-          dynamic_sidebar( 'se-social-icon' );
-        endif;
+          			dynamic_sidebar( 'se-social-icon' );
+                endif;
 				?>
 			</div>
-			</div>
-		</div>
-
-			<nav>
-				<div class="sentry-nav container">
-				<button><i class="fa fa-angle-down" aria-hidden="true"></i></button>
-				<ul class='visible-links'>
-					<?php wp_nav_menu( array( 'container' => '', 'items_wrap' => '%3$s', 'depth' => 1) ); ?>
-				</ul>
-				<ul class='hidden-links hidden'></ul>
-			</div>
-			</nav>
-
+		</div><!-- .global-header-content -->
+		<nav>
+			<ul class='visible-links'>
+				<?php wp_nav_menu( array( 'container' => '', 'items_wrap' => '%3$s', 'depth' => 1) ); ?>
+			</ul>
+		</nav>
 		</header>

@@ -83,7 +83,6 @@ header.header .logo div{
 	background: #f5f7fa;
 	padding: 4px 12px;
   border-radius: 10px;
-	margin-right: 6px;
 }
 #content header .entry-meta ul li a{
 	color: #AAAAAA;
@@ -124,15 +123,9 @@ header.header .logo div{
 }
 #content h3{
 	font-weight: bold;
-  border-left: 4px solid #aaaaaa;
+  border-left: 4px solid #f5f7fa;
   padding: .6rem 0 .6rem .8rem;
   margin: 1.6rem 0 .8rem;
-}
-#content h4, #content h5, #content h6{
-	font-weight: bold;
-	margin: 1.6rem 0 .8rem;
-	padding: .6rem 0 .4rem .4rem;
-	border-bottom: 2px solid #aaaaaa;
 }
 #content blockquote{
 	padding: 1rem;
@@ -306,72 +299,6 @@ header.header .logo div{
 	border-radius: 3px;
 	padding: 16px 20px;
 	margin-bottom: 20px;
-}
-.balloon{ margin: 1.5rem 0; }
-.balloon .balloon-image{
-	display: inline-block;
-  vertical-align: top;
-  text-align: center;
-	width: 96px;
-}
-#content .post .balloon .balloon-image p{ margin: 0; }
-#content .post .balloon.left .balloon-image{ padding-right: 14px; }
-#content .post .balloon.right .balloon-image{ padding-left: 14px; }
-#content .post .balloon .balloon-image amp-img{
-	height: 96px;
-	object-fit: cover;
-	margin: 0;
-}
-#content .post .balloon .balloon-image.circle amp-img{
-	border-radius: 50%;
-	border: 2px solid #EFEFEF;
-}
-#content .post .balloon .balloon-image .balloon-image-description{
-	font-size: 0.75em;
-	font-weight: bold;
-}
-.balloon .balloon-text{
-	display: inline-block;
-	position: relative;
-	vertical-align: top;
-	margin-top: 12px;
-	width: calc(100% - 155px);
-	padding: 0.9rem;
-	border: solid 2px #aaa;
-	border-radius: 8px;
-	background: #fff;
-}
-.balloon .balloon-text:before{
-	content: "";
-	position: absolute;
-	top: 24px;
-	z-index: 2;
-	margin-top: -12px;
-	border: 12px solid transparent;
-}
-.balloon .balloon-text:after{
-	content: "";
-	position: absolute;
-	top: 24px;
-	z-index: 1;
-	margin-top: -12px;
-	border: 12px solid transparent;
-}
-.balloon.left .balloon-text:before{
-	left: -21px;
-	border-right: 12px solid #fff;
-}
-.balloon.left .balloon-text:after{
-	left: -24px;
-  border-right: 12px solid #aaa;
-}
-.balloon.right .balloon-text:before{
-	right: -21px;
-	border-left: 12px solid #fff;
-}
-.balloon.right .balloon-text:after{
-	right: -24px;
-	border-left: 12px solid #aaa;
 }
 <?php
 if ( get_theme_mod( 'amp-customcss' ) !=  '' ) {

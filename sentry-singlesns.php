@@ -5,9 +5,9 @@ Template Name: シングルカラム（SNSボタンのみ表示、サイドバ�
 ?>
 <?php get_header(); ?>
 <div id="content" class="container">
-	<?php get_template_part( 'pats/se-breadcrumb' );?>
+	<?php get_template_part( 'se-breadcrumb' );?>
 	<div id="inner-content">
-	<main class="single">
+	<main>
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
 			<?php
 			// start the loop
@@ -41,7 +41,7 @@ Template Name: シングルカラム（SNSボタンのみ表示、サイドバ�
 
 				<h1 class="title entry-title"><?php the_title_attribute(); //タイトル ?></h1>
 				<?php if ( get_theme_mod( 'article_sns_top' ) ) {
-					get_template_part( 'parts/se-sns' );
+					get_template_part( 'se-sns' );
 				}?>
 
 			</header><!-- .entry-head -->
@@ -84,7 +84,7 @@ Template Name: シングルカラム（SNSボタンのみ表示、サイドバ�
 					?>
 				</div>
 				<?php if ( get_theme_mod( 'article_sns_bottom' ) ) {
-					get_template_part( 'parts/se-sns-large' );
+					get_template_part( 'se-sns-large' );
 				}?>
 				<?php wp_link_pages(); ?>
 			</footer><!-- entry-foot -->

@@ -1,4 +1,4 @@
-<div id="breadcrumb">
+<div class="breadcrumb">
 	<ul>
 		<li>
 			<a href="<?php echo home_url(); ?>">

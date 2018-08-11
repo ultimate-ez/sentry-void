@@ -1,26 +1,22 @@
 jQuery(function($){
   $(function(){
 
-    var $hiddenClass = 'hidden',
-      $seHeader = $('.header'),
-      $throttleTimeout = 500;
-      $nav = $('.sentry-nav'),
-      $bnav = $('.sentry-bottom-nav'),
-      $btn = $('.sentry-nav button'),
-      $vlinks = $('.sentry-nav .visible-links'),
-      $hlinks = $('.sentry-nav .hidden-links');
+    // /* Sticky Header & Footer */
+    var $throttleTimeout = 200, // Sensitiity
+        $hiddenClass = 'hidden', // Class Name to hide
+        $stickyHeader = $('.global-header'), // Sticky Header
+        $stickyFooter = $('.sentry-bottom-nav'); // Sticky Footer
+        $stickyShareBox = $('.float-sns-box');  // Sticky Share Box
 
-    /* Start Sticky Header */
-
-    if( !$seHeader.length ) return true;
+    if( !$stickyHeader.length || !$stickyFooter.length  ) return true;
 
     var $window         = $( window ),
+        $document       = $( document ),
         wHeight         = 0,
+        dHeight         = 0,
         wScrollCurrent  = 0,
         wScrollBefore   = 0,
         wScrollDiff     = 0,
-        $document       = $( document ),
-        dHeight         = 0,
 
     throttle = function( delay, fn ) {
       var last, deferTimer;
@@ -37,86 +33,42 @@ jQuery(function($){
     };
 
     $window.on( 'scroll', throttle( $throttleTimeout, function() {
-      dHeight = $document.height();
       wHeight = $window.height();
+      dHeight = $document.height();
       wScrollCurrent  = $window.scrollTop();
       wScrollDiff     = wScrollBefore - wScrollCurrent;
 
-      if( wScrollCurrent <= 0 ) {
-        $seHeader.removeClass( $hiddenClass );
-      } else if( wScrollDiff > 0 && $seHeader.hasClass( $hiddenClass ) ){
-        $seHeader.removeClass( $hiddenClass );
-        $bnav.removeClass( $hiddenClass );
+      $removePos = 36; // どのくらいスクロールしたらヘッダを隠すか？
+
+      if( wScrollCurrent <= $removePos ) {
+        $stickyHeader.removeClass( $hiddenClass );
+      } else if( wScrollDiff > 0 && $stickyHeader.hasClass( $hiddenClass ) ){
+        $stickyHeader.removeClass( $hiddenClass );
+        $stickyFooter.removeClass( $hiddenClass );
       } else if( wScrollDiff < 0 ) {
-        if( wScrollCurrent + wHeight >= dHeight && $seHeader.hasClass( $hiddenClass ) ){
-          $seHeader.removeClass( $hiddenClass );
-          $bnav.removeClass( $hiddenClass );
+        if( wScrollCurrent + wHeight >= dHeight && $stickyHeader.hasClass( $hiddenClass ) ){
+          $stickyHeader.removeClass( $hiddenClass );
+          $stickyFooter.removeClass( $hiddenClass );
         } else {
-          $seHeader.addClass( $hiddenClass );
-          $bnav.addClass( $hiddenClass );
-          $hlinks.addClass( $hiddenClass );
+          $stickyHeader.addClass( $hiddenClass );
+          $stickyFooter.addClass( $hiddenClass );
         }
       }
 
       wScrollBefore = wScrollCurrent;
     }));
-    /* End Sticky Header */
-
-    /* start Greedy Nav */
-    var breaks = [];
-
-    function updateNav() {
-
-      var availableSpace = $btn.hasClass( $hiddenClass ) ? $nav.width() : $nav.width() - $btn.width() - 30;
-
-      if($vlinks.width() > availableSpace) {
-
-        breaks.push($vlinks.width());
-        $vlinks.children().last().prependTo($hlinks);
-        if($btn.hasClass( $hiddenClass )) {
-          $btn.removeClass( $hiddenClass );
-        }
-
-      } else {
-        if(availableSpace > breaks[breaks.length-1]) {
-          $hlinks.children().first().appendTo($vlinks);
-          breaks.pop();
-        }
-        if(breaks.length < 1) {
-          $btn.addClass( $hiddenClass );
-          $hlinks.addClass( $hiddenClass );
-        }
-      }
-
-      $btn.attr("count", breaks.length);
-
-      if($vlinks.width() > availableSpace) {
-        updateNav();
-      }
-
-      $vlinks.css('visibility', 'visible' );
-
-    }
-
-    $(window).resize(function() {
-      updateNav();
-    });
-
-    $btn.on('click', function() {
-      $hlinks.toggleClass( $hiddenClass );
-    });
-
-    updateNav();
-    /* End Greedy Nav */
 
     /* Scroll Button to TOP & SNS */
-    $bnav.hide();
-    $bnav.addClass($hiddenClass);
+    $stickyShareBox.hide();
+    $stickyFooter.hide();
+    $stickyFooter.addClass($hiddenClass);
+    $stickyShareBox.addClass($hiddenClass);
     $(window).scroll(function () {
       if ($(this).scrollTop() > 100) {
-        $bnav.show();
+        $stickyFooter.show();
+        $stickyShareBox.show();
       } else {
-        $bnav.addClass($hiddenClass);
+        $stickyFooter.addClass($hiddenClass);
       }
     });
 
@@ -125,74 +77,17 @@ jQuery(function($){
       return false;
     });
 
-    if ( $('#sns-share-bottom').length > 0 ){
-      $('#btn-share').click(function(){
-        $('body,html').animate({scrollTop:$('#sns-share-bottom').offset().top});
-        setTimeout(function(){
-          $seHeader.addClass( $hiddenClass );
-        },600);
-        return false;
-      });
-    } else {
-      $('#btn-share').css("display", "none");
-    }
-
-    /* Comment Customize */
-     $('#comments .pagination a').addClass('button');
-     $('#comment_submit').addClass('button');
-
-     $( 'article .entry-content table' ).addClass('table is-bordered is-striped');
-
-    /* Popular Posts Tab */
-    $('#se_popular_posts .tabs ul li').click(function() {
-
-      var index = $('#se_popular_posts .tabs ul li').index(this);
-      $('#se_popular_posts .wpp_content').css('display','none');
-      $('#se_popular_posts .wpp_content').eq(index).css('display','block');
-      $('#se_popular_posts .tablist' ).removeClass("is-active");
-      $('#se_popular_posts .tablist' ).eq(index).addClass("is-active");
-
+    $('#btn-share').click(function(){
+      $stickyShareBox.show();
+      $stickyShareBox.removeClass($hiddenClass);
+      return false;
+    });
+    $('#btn-close').click(function(){
+      $stickyShareBox.addClass($hiddenClass);
       return false;
     });
 
-    /* sticky sidebar */
-    $('div#sidebar div.sidebar-main.sticky').fitSidebar({
-      wrapper : 'div#inner-content',
-      responsiveWidth : 979,
-    });
-
-    /* for slick */
-    $('.sentry-slider').slick({
-      arrows: false,
-      dots: true,
-      speed: 300,
-      slidesToShow: 5,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 2000,
-      responsive:[
-        {
-          breakpoint: 1180,
-          settings: { slidesToShow: 4 }
-        },
-        {
-          breakpoint: 980,
-          settings: { slidesToShow: 3 }
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 2,
-            dots: false
-          }
-        }
-      ]
-    });
-    $( '.sentry-slider' ).show();
-
     /* ヨメレバ、ポチレバ、カエレバのリンクに「target="_blank"」を付与 */
     $( '.cstmreba a' ).attr( 'target', '_blank');
-
-    $('img[src$="/wordpress-popular-posts/no_thumb.jpg"]').attr('src','/wp-content/themes/sentry-void/img/NoImage_300x200.png');
   });
 });

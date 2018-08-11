@@ -76,7 +76,7 @@ class Se_twitter_Widget extends WP_Widget{
   public function widget( $args, $instance ){
     $url = $instance['url'];
     echo $args['before_widget']; ?>
-    <div class="twitter-box twitter">
+    <div class="follow-box is-simple twitter">
       <span class="sns-label">Twitterで</span>
   		<a href="https://twitter.com/<?php echo $url ?>" class="twitter-follow-button" data-show-count="true" data-size="large" data-show-screen-name="false">Follow <?php echo $url ?></a>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -110,7 +110,7 @@ class Se_Feedly_Widget extends WP_Widget{
   public function widget( $args, $instance ){
     $url = $instance['url'];
     echo $args['before_widget']; ?>
-    <div class="twitter-box feedly">
+    <div class="follow-box is-simple feedly">
       <span class="sns-label">Feedlyで</span>
   		<span class="feedly-btn">
         <a href='https://feedly.com/i/subscription/feed/<?php echo esc_attr($url); ?>' target='_blank'>
@@ -152,7 +152,7 @@ class Se_Push7_Widget extends WP_Widget{
     $p7id = $instance['p7id'];
     $url = $instance['url'];
     echo $args['before_widget']; ?>
-    <div class="twitter-box push7">
+    <div class="follow-box is-simple push7">
       <span class="sns-label">Push7で</span>
       <div class="p7-b" data-p7id="<?php echo $p7id; ?>" data-p7c="r" ></div>
       <script src="<?php echo $url; ?>/static/button/p7.js" charset="UTF-8"></script>
@@ -296,12 +296,12 @@ class Se_New_Posts extends WP_Widget{
       $postquery = array(
         'posts_per_page' => $count,
         'ignore_sticky_posts' => 1,
-        "no_found_rows"       => true,
+        'no_found_rows' => true,
       );
       $posts = new WP_Query($postquery);
       ?>
       <?php if ( $posts->have_posts() ):?>
-      <ul>
+      <ul class="list is-thumbnail-list is-indicator">
       <?php while ( $posts->have_posts() ) : $posts->the_post(); ?>
 
         <li class="thumblist">
@@ -317,7 +317,7 @@ class Se_New_Posts extends WP_Widget{
             </figure>
             <div class="content">
               <?php the_title_attribute(); ?>
-              <span class="post-date"><time><?php the_time( 'Y.m.d' ); ?></time></span>
+              <span class="footline"><time><?php the_time( 'Y.m.d' ); ?></time></span>
             </div>
           </a>
         </li>
@@ -377,16 +377,23 @@ class Se_Popular_Posts extends WP_Widget{
     if ( $title )
       echo $before_title .$title .$after_title; ?>
 
-  <div id="se_popular_posts">
-    <div class="tabs is-toggle is-fullwidth">
-      <ul>
-        <li class="tablist is-active">Weekly</li>
-        <li class="tablist">Monthly</li>
-        <li class="tablist">Total</li>
-      </ul>
-    </div>
-    <div class="content_area">
-      <div class="wpp_content" style="display:block">
+  <div class="se_popular_posts">
+    <input id="panel-1-ctrl" class="panel-radios" type="radio" name="tab-radios" checked>
+    <input id="panel-2-ctrl" class="panel-radios" type="radio" name="tab-radios"> 
+    <input id="panel-3-ctrl" class="panel-radios" type="radio" name="tab-radios">
+    <ul class="tabs">
+      <li class="tab-item li-for-panel-1">
+        <label class="panel-label" for="panel-1-ctrl">Weekly</label>
+      </li>
+      <li class="tab-item li-for-panel-2">
+        <label class="panel-label" for="panel-2-ctrl">Monthly</label>
+      </li>
+      <li class="tab-item li-for-panel-3">
+        <label class="panel-label" for="panel-3-ctrl">Total</label>
+      </li>
+    </ul>
+    <div class="panels">
+      <div class="wpp_content panel-1">
         <?php
         if (function_exists('wpp_get_mostpopular')) {
           $wpp = array (
@@ -399,13 +406,15 @@ class Se_Popular_Posts extends WP_Widget{
             'stats_date_format' => "Y.n.j",
             'thumbnail_width' => '300',
             'thumbnail_height' => '200',
+            'wpp_start' => '<ul class="wpp-list list is-thumbnail-list is-indicator">',
+            'wpp_end' => '</ul>',
             'post_html' =>'
               <li class="thumblist">
                 <a href= "{url}">
                   <figure class="thumbnail">{thumb_img}</figure>
                   <div class="content">
-                  {text_title}
-                  <span class="post-stats"><time>{date}</time> | {views}<small>views</small></span>
+                  <div class="post-text">{text_title}</div>
+						      <span class="footline"><time><i class="far fa-clock"></i>{date}</time><span class="views">{views}<small>views</small></span></span>
                   </div>
                 </a>
               </li>
@@ -415,7 +424,7 @@ class Se_Popular_Posts extends WP_Widget{
           wpp_get_mostpopular($wpp);
         }?>
       </div>
-      <div class="wpp_content" style="display:none">
+      <div class="wpp_content panel-2">
         <?php
         if (function_exists('wpp_get_mostpopular')) {
           $wpp = array (
@@ -428,13 +437,15 @@ class Se_Popular_Posts extends WP_Widget{
             'stats_date_format' => "Y.n.j",
             'thumbnail_width' => '300',
             'thumbnail_height' => '200',
+            'wpp_start' => '<ul class="wpp-list list is-thumbnail-list is-indicator">',
+            'wpp_end' => '</ul>',
             'post_html' =>'
               <li class="thumblist">
                 <a href= "{url}">
                   <figure class="thumbnail">{thumb_img}</figure>
                   <div class="content">
-                  {text_title}
-                  <span class="post-stats"><time>{date}</time> | {views}<small>views</small></span>
+                  <div class="post-text">{text_title}</div>
+						      <span class="footline"><time><i class="far fa-clock"></i>{date}</time><span class="views">{views}<small>views</small></span></span>
                   </div>
                 </a>
               </li>
@@ -444,7 +455,7 @@ class Se_Popular_Posts extends WP_Widget{
           wpp_get_mostpopular($wpp);
         }?>
       </div>
-      <div class="wpp_content" style="display:none">
+      <div class="wpp_content panel-3">
         <?php
         if (function_exists('wpp_get_mostpopular')) {
           $wpp = array (
@@ -457,13 +468,15 @@ class Se_Popular_Posts extends WP_Widget{
             'stats_date_format' => "Y.n.j",
             'thumbnail_width' => '300',
             'thumbnail_height' => '200',
+            'wpp_start' => '<ul class="wpp-list list is-thumbnail-list is-indicator">',
+            'wpp_end' => '</ul>',
             'post_html' =>'
               <li class="thumblist">
                 <a href= "{url}">
                   <figure class="thumbnail">{thumb_img}</figure>
                   <div class="content">
-                  {text_title}
-                  <span class="post-stats"><time>{date}</time> | {views}<small>views</small></span>
+                  <div class="post-text">{text_title}</div>
+						      <span class="footline"><time><i class="far fa-clock"></i>{date}</time><span class="views">{views}<small>views</small></span></span>
                   </div>
                 </a>
               </li>
@@ -538,9 +551,9 @@ class Se_Social_Icon extends WP_Widget{
     $icon = $instance['icon'];
     $url = $instance['url'];
 ?>
-  <div class="social-icon">
+  <div class="item is-icon">
     <a href="<?php echo $url; ?>" target="_blank">
-      <i class="fa fa-<?php echo $icon ?>" aria-hidden="true"></i>
+      <i class="fab fa-<?php echo $icon ?>" aria-hidden="true"></i>
     </a>
   </div>
 <?php

@@ -1,15 +1,13 @@
 <?php get_header(); ?>
-<div id="content" class="container">
+<div id="content" class="container grid main-2-column">
 	<?php get_template_part ( 'se-hero' ); ?>
-	<div id="inner-content">
-	<main class="home">
+	<main class="content grid-content">
 
 		<?php get_template_part( 'se-home' ); ?>
 
 	</main>
-	<div id="sidebar">
+	<div id="sidebar" class="grid-sidebar">
 		<?php get_sidebar(); ?>
 	</div><!-- #sidebar -->
-</div><!-- #inner-content -->
 </div><!-- #content -->
 <?php get_footer(); ?>

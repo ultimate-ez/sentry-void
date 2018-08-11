@@ -12,34 +12,20 @@
 			'stats_date_format' => "Y.n.j",
 			'thumbnail_width' => '300',
 			'thumbnail_height' => '200',
+            'wpp_start' => '<ul class="wpp-list list is-ranking-list">',
+            'wpp_end' => '</ul>',
 			'post_html' =>'
 				<li>
 					<a href= "{url}">
 						<div class="content">
 						<div class="post-text">{text_title}</div>
-						<span class="post-stats"><time>{date}</time> | {views}<small>views</small></span>
+						<span class="footline"><span class="views">{views}<small>views</small></span><time><i class="far fa-clock"></i>{date}</time></span>
 						</div>
 						<figure class="thumbnail">{thumb_img}</figure>
 					</a>
 				</li>
 			',
 		);
-
-		$view_isHidden = absint( get_theme_mod( 'sentry_wpp_is_hidden', false ) );
-		if ($view_isHidden){
-			$wpp['post_html'] = '
-				<li>
-					<a href= "{url}">
-						<div class="content">
-						<div class="post-text">{text_title}</div>
-						<span class="post-stats"><time>{date}</time></span>
-						</div>
-						<figure class="thumbnail">{thumb_img}</figure>
-					</a>
-				</li>
-			';
-		}
-
 		wpp_get_mostpopular($wpp);
 	}?>
 </section>

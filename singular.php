@@ -1,8 +1,9 @@
 <?php get_header(); ?>
-<div id="content" class="container">
+<div class="container grid main-2-column">
+	<header class="grid-header">
 	<?php get_template_part( 'parts/se-breadcrumb' );?>
-	<div id="inner-content">
-	<main>
+	</header>
+	<main class="content grid-content">
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
 			<?php
 			// start the loop
@@ -10,29 +11,25 @@
 
 			<header class="entry-head">
 
-				<div class="entry-date" >
+				<div class="pre-title-info" >
 				<ul>
 					<li>
-						<span class="icon is-small"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+						<i class="far fa-clock" aria-hidden="true"></i>
 						<time class="published<?php if (get_the_modified_date('Y/n/j') == get_the_time('Y/n/j')) { echo ' updated'; }?>"><?php the_time( 'Y/m/d' ); ?></time>
 					</li>
 					<?php if (get_the_modified_date('Y/n/j') != get_the_time('Y/n/j')) : ?>
 					<li>
-						<span class="icon is-small"><i class="fa fa-repeat" aria-hidden="true"></i></span>
+						<i class="far fa-edit" aria-hidden="true"></i>
 						<time class="updated"><?php the_modified_date('Y/m/d') ?></time>
 					</li>
 					<?php endif; ?>
-					<li class="hidden vcard autohr">
+					<li class="is-hidden vcard autohr">
 						<span class="fn">
-						<?php if ( get_theme_mod( 'article_profile' ) ):?>
 							<?php echo get_the_author_meta('nickname'); ?>
-						<?php else: ?>
-							<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>
-						<?php endif; ?>
 						</span>
 					</li>
 				</ul>
-				</div><!-- .entry-date -->
+				</div><!-- .pre-title-info -->
 
 				<h1 class="title entry-title"><?php the_title_attribute(); //タイトル ?></h1>
 				<?php if ( get_theme_mod( 'article_sns_top' ) ) {
@@ -42,7 +39,7 @@
 			</header><!-- .entry-head -->
 
 			<?php if ( is_active_sidebar( 'se-article-top' ) ) :
-				dynamic_sidebar( 'se-article-top	' );
+				dynamic_sidebar( 'se-article-top' );
 			endif; ?>
 
 			<section class="entry-content content" >
@@ -52,9 +49,9 @@
 			</section><!-- .entry-content -->
 
 			<?php if ( is_active_sidebar( 'se-article-ad' ) ) :?>
-				<aside class="article_ad">
-					<span class="title">スポンサードリンク</span>
-					<div class="is-flex-widescreen">
+				<aside class="ad is-horizon">
+					<span class="ad-label">スポンサードリンク</span>
+					<div class="column">
 						<?php dynamic_sidebar( 'se-article-ad' );	?>
 					</div>
 				</aside>
@@ -111,9 +108,8 @@
 			endif; ?>
 		</article>
 	</main>
-	<div id="sidebar">
+	<div id="sidebar" class="grid-sidebar">
 		<?php get_sidebar(); ?>
 	</div><!-- #sidebar -->
-</div><!-- #inner-content -->
 </div><!-- #content -->
 <?php get_footer(); ?>

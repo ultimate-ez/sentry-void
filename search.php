@@ -1,7 +1,6 @@
 <?php get_header(); ?>
-<div id="content" class="container">
-	<div id="inner-content" class="columns is-desktop">
-	<main class="column">
+<div class="container grid main-2-column">
+	<main class="content grid-content">
 		<section class="search">
 			<header class="entry-head">
 			<h1>
@@ -10,12 +9,16 @@
 			</header>
 			<section class="entry-content">
 				<?php get_template_part( 'se-loop' ); ?>
+				<nav id="nav-below">
+					<?php echo paginate_links( array(
+						'next_text' => '次の'.get_option('posts_per_page').'件を読み込む',
+					)); ?>
+				</nav>
 			</section><!-- .entry-content -->
 		</section>
 	</main>
-	<div id="sidebar" class="column">
+	<div id="sidebar" class="grid-sidebar">
 		<?php get_sidebar(); ?>
 	</div><!-- #sidebar -->
-</div><!-- #inner-content -->
 </div><!-- #content -->
 <?php get_footer(); ?>

@@ -1,5 +1,5 @@
-<section class="sticky-posts" >
-
+<section class="grid-header slider" >
+<div class="slider-wrapper">
 	<?php
 	$item_cnt = 15;
 
@@ -11,7 +11,7 @@
 	$the_query = new WP_Query($args); ?>
 	<?php if ( $the_query -> have_posts() ) : ?>
 	<?php $loopcount = 0; ?>
-	<ul class="sentry-slider" style="display:none;">
+	<ul class="slider-items">
 	<?php while ( $the_query -> have_posts() ) : $the_query -> the_post(); ?>
 	<?php
 	if ( $loopcount > $item_cnt) :
@@ -19,7 +19,7 @@
 	else:?>
 		<li class="slide-item">
 			<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-				<figure class="thumbnail">
+				<figure class="thumbnail card">
 					<?php
 					if ( has_post_thumbnail() ):
 						the_post_thumbnail( 'facebook-thumb' );
@@ -29,7 +29,8 @@
 					?>
 				</figure>
 				<div class="post-title">
-					<?php the_title_attribute();?>
+					<?php //the_title_attribute();?>
+					<?php echo wp_trim_words( get_the_title(), 30 , '…' ); ?>
 				</div>
 			</a>
 		</li>
@@ -42,4 +43,5 @@
 	<p>記事がありません</p>
 	<?php endif; ?>
 	<?php wp_reset_postdata(); ?>
+</div>
 </section>

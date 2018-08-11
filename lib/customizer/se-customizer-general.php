@@ -71,7 +71,7 @@ function sentry_customize_register_general( $wp_customize ){
     'priority' => 50,
   ));
 
-  // Sentryプロモーション
+  // wppのview数の非表示
   $wp_customize->add_setting( 'sentry_wpp_is_hidden', array(
     'default' => false,
     'type' => 'theme_mod',

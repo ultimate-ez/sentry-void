@@ -42,13 +42,10 @@ remove_action( 'wp_print_styles', 'print_emoji_styles' ); // 絵文字
 if ( ! function_exists( 'sentry_enqueue_script' ) ) {
   function sentry_enqueue_script() {
     wp_enqueue_script( 'sentry', get_template_directory_uri() . '/js/sentry.js' , array('jquery'), wp_theme_version(), true);
-    wp_enqueue_script( 'fitslider', get_template_directory_uri() . '/js/jquery.fit-sidebar.js', array('jquery'), null, true);
-    wp_enqueue_script( 'slick', get_template_directory_uri() . '/js/slick.min.js', array('jquery'), null, true);
-
-    wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
-    wp_enqueue_style( 'bluma', '//cdnjs.cloudflare.com/ajax/libs/bulma/0.1.0/css/bulma.css' );
+    wp_enqueue_style( 'font-awesome', '//use.fontawesome.com/releases/v5.0.13/css/all.css' );
+    wp_enqueue_style( 'raleway', 'https://fonts.googleapis.com/css?family=Raleway');
     wp_enqueue_style( 'sentry', get_template_directory_uri().'/css/sentry.css', array(), wp_theme_version(), false );
-    wp_enqueue_style( 'yakuhan', '//cdn.jsdelivr.net/npm/yakuhanjp@3.0.0/dist/css/yakuhanjp.min.css');
+    // wp_enqueue_style( 'yakuhan', '//cdn.jsdelivr.net/npm/yakuhanjp@3.0.0/dist/css/yakuhanjp.min.css');
 
     wp_add_inline_style( 'sentry', sentry_custom_css() );
 
@@ -92,7 +89,7 @@ if ( ! function_exists( 'media_responsive' ) ) {
       if ( ( strstr( $url,'youtube' ) ) || ( strstr( $url,'youtu.be' ) ) || ( strstr( $url,'vimeo' ) ) ) {
       	$return = '<div class="video-container">'.$html.'</div>';
       } elseif ( strstr( $url,'vine' ) ){
-        $return = '<div class="video-container square">'.$html.'</div>';
+        $return = '<div class="video-container is-square">'.$html.'</div>';
       }else{
       	$return = $html;
   	}
@@ -169,23 +166,25 @@ if ( ! function_exists( 'wp_infinite_scroll_js_setting' ) ) {
       $(function(){
         $( 'ul.main-loop' ).infinitescroll({
           loading: {
-            img: "<?php echo get_template_directory_uri(); ?>/img/sentry-spinner.svg",
+            img: "<?php echo get_template_directory_uri(); ?>/img/loading.gif",
             msgText: "読込中...",
             finishedMsg: "これ以上読み込める記事がありません。",
           },
-          nextSelector : "#nav-below a.next",
-          navSelector : "#nav-below",
+          animate : true,
+          extraScrollPx: 50,
+          nextSelector : "#more-button a.next",
+          navSelector : "#more-button",
           itemSelector : "ul.main-loop li",
           errorCallback: function() {
-            $( '#nav-below' ).hide();
+            $( '#more-button' ).hide();
           }
         });
 
         $(window).unbind('.infscr');
 
-        $('#nav-below a.next').on( "click", function(){
+        $('#more-button a.next').on( "click", function(){
       		$( 'ul.main-loop' ).infinitescroll( 'retrieve' );
-          $( '#nav-below' ).show();
+          $( '#more-button' ).show();
       		return false;
       	});
       });

@@ -7,11 +7,11 @@
 	    'hide_empty' => true,
 	  ));
 ?>
-	<ul class="columns is-multiline is-mobile">
+	<ul class="columns grid is-multiline is-mobile">
 	  <?php foreach ($categories as $key => $value): ?>
 	    <?php $posts = get_posts( 'numberposts=1&cat='.$value->term_id ); ?>
 	    <?php foreach($posts as $post): ?>
-				<li class="column is-half-mobile is-one-third-tablet">
+				<li class="column is-6 is-4-tablet card is-shadow is-full-picture">
 					<a href="<?php echo get_category_link($value->term_id); ?>" title="<?php echo $value->name; ?>">
 			      <figure class="thumbnail">
 							<?php
@@ -22,8 +22,8 @@
 							endif;
 							?>
 						</figure>
-						<div class="cat_title"><?php echo $value->name; ?><br/></div>
-						<div class="cat_count"><span><?php echo get_category($value->term_id)->count; ?></span>件</div>
+						<div class="headline cat_title"><?php echo $value->name; ?><br/></div>
+						<div class="footline cat_count"><span><?php echo get_category($value->term_id)->count; ?></span>件</div>
 					</a>
 				</li>
 	    <?php endforeach; ?>

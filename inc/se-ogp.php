@@ -2,7 +2,8 @@
 function se_ogp_image() {
   $image = null;
   if ( has_post_thumbnail() ){
-     $image = wp_get_attachment_image_src( get_post_thumbnail_id(), "full" )[0];
+     $image_src = wp_get_attachment_image_src( get_post_thumbnail_id(), "full" );
+     $image = $image_src[0];
   } else {
     global $post;
     if (preg_match('/<img[^>]*src\s*=\s*("|\')([^"\']+)("|\')[^>]*>/i', $post->post_content, $matches)) {
