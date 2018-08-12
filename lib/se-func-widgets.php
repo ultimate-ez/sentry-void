@@ -509,8 +509,8 @@ class Se_Popular_Posts extends WP_Widget{
         <a href= "{url}">
           <figure class="thumbnail">{thumb_img}</figure>
           <div class="content">
-          {text_title}
-          <span class="post-stats"><time>{date}</time></span>
+          <div class="post-text">{text_title}</div>
+          <span class="footline"><time><i class="far fa-clock"></i>{date}</time></span>
           </div>
         </a>
       </li>
