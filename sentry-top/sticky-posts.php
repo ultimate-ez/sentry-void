@@ -39,6 +39,12 @@
 	endif; ?>
 	<?php endwhile; ?>
 	</ul>
+	<?php if ( !wp_is_mobile() ) : ?>
+	<div class="slider-nav">
+		<button class="slider-nav-button slider-nav-button-left" style="display:none;" ></button>
+		<button class="slider-nav-button slider-nav-button-right"></button>
+	</div>
+	<?php endif; ?>
 	<?php else: ?>
 	<p>記事がありません</p>
 	<?php endif; ?>

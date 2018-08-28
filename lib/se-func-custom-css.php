@@ -32,7 +32,8 @@ function sentry_custom_css(){
     footer.entry-foot .categories a,
     section.comment input[name=submit],
     .wpcf7 .wpcf7-submit,
-    .sentry-bottom-nav .circle-button#btn-share
+    .sentry-bottom-nav .circle-button#btn-share,
+    header.global-header nav .head-menu-nav-button
     {
       background:{$primaryColor};
     }";

@@ -42,8 +42,14 @@
 			</div>
 		</div><!-- .global-header-content -->
 		<nav>
-			<ul class='visible-links'>
+			<ul class='head-menu-items'>
 				<?php wp_nav_menu( array( 'container' => '', 'items_wrap' => '%3$s', 'depth' => 1) ); ?>
 			</ul>
+			<?php if ( !wp_is_mobile() ) : ?>
+			<div class="head-menu-nav">
+				<button class="head-menu-nav-button head-menu-nav-button-left" style="display:none"></button>
+				<button class="head-menu-nav-button head-menu-nav-button-right"></button>
+			</div>
+			<?php endif; ?>
 		</nav>
 		</header>

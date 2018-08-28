@@ -63,7 +63,7 @@ jQuery(function($){
     $stickyFooter.hide();
     $stickyFooter.addClass($hiddenClass);
     $stickyShareBox.addClass($hiddenClass);
-    $(window).scroll(function () {
+    $window.scroll(function () {
       if ($(this).scrollTop() > 100) {
         $stickyFooter.show();
         $stickyShareBox.show();
@@ -86,6 +86,103 @@ jQuery(function($){
       $stickyShareBox.addClass($hiddenClass);
       return false;
     });
+
+    /* Top Slider */
+    $slideItems = $('.slider-items');
+    if ($slideItems.length){
+
+      $slideLeftButton  = $('.slider-nav-button-left');
+      $slideRightButton = $('.slider-nav-button-right');
+      $slideLength      = $('.slider-items .slide-item:first-child').width();
+      $slideStepWidth   = $slideLength * 3;
+      
+      checkSliderScroll();
+    
+      $slideLeftButton.click(function(){
+        $slideItems.stop(true, false).animate({scrollLeft:　$slideItems.scrollLeft() - $slideStepWidth}, 'slow', function(){
+          $slideItems.queue([]);
+          $slideItems.stop();
+        });
+      });
+      $slideRightButton.click(function(){
+        $slideItems.stop(true, false).animate({scrollLeft:　$slideItems.scrollLeft() + $slideStepWidth}, 'slow', function(){
+          $slideItems.queue([]);
+          $slideItems.stop();
+        });
+      });
+
+      $slideItems.scroll(function(){
+        checkSliderScroll();
+      });
+    }
+
+    function checkSliderScroll () {
+
+      $firstItem = $('.slider-items .slide-item:first-child');
+      $lastItem  = $('.slider-items .slide-item:last-child');
+      $firstItemPos = $firstItem.offset().left;
+      $lastItemPos  = $lastItem.offset().left + $lastItem.width();
+
+      if ( $firstItemPos < 0 ){
+        $slideLeftButton.show();
+      } else {
+        $slideLeftButton.hide();
+      }
+
+      if ( $lastItemPos < $window.width() + 10 ){
+        $slideRightButton.hide();
+      } else {
+        $slideRightButton.show();
+      }
+
+    }
+
+    /* Header Menu SLider */
+    $headerMenuItems = $('.head-menu-items');
+    if ($headerMenuItems.length){
+
+      $headerMenuLeftButton  = $('.head-menu-nav-button-left');
+      $headerMenuRightButton = $('.head-menu-nav-button-right');
+      $headerMenuStepWidth = $window.width() / 2;
+      
+      checkHeaderMenuScrol();
+    
+      $headerMenuLeftButton.click(function(){
+        $headerMenuItems.stop(true, false).animate({scrollLeft:　$headerMenuItems.scrollLeft() - $headerMenuStepWidth}, 'slow', function(){
+          $headerMenuItems.queue([]);
+          $headerMenuItems.stop();
+        });
+      });
+      $headerMenuRightButton.click(function(){
+        $headerMenuItems.stop(true, false).animate({scrollLeft:　$headerMenuItems.scrollLeft() + $headerMenuStepWidth}, 'slow', function(){
+          $headerMenuItems.queue([]);
+          $headerMenuItems.stop();
+        });
+      });
+
+      $headerMenuItems.scroll(function(){
+        checkHeaderMenuScrol();
+      });
+    }
+
+    function checkHeaderMenuScrol (){
+      $firstItem = $('.head-menu-items .menu-item:first-child');
+      $lastItem  = $('.head-menu-items .menu-item:last-child');
+      $firstItemPos = $firstItem.offset().left;
+      $lastItemPos  = $lastItem.offset().left + $lastItem.width();
+
+      if ( $firstItemPos < 0 ){
+        $headerMenuLeftButton.show();
+      } else {
+        $headerMenuLeftButton.hide();
+      }
+
+      if ( $lastItemPos < $window.width() + 10 ){
+        $headerMenuRightButton.hide();
+      } else {
+        $headerMenuRightButton.show();
+      }
+    }
 
     /* ヨメレバ、ポチレバ、カエレバのリンクに「target="_blank"」を付与 */
     $( '.cstmreba a' ).attr( 'target', '_blank');
