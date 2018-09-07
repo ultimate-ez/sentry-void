@@ -19,7 +19,10 @@ function sentry_custom_css(){
   a,
   footer.entry-foot .tags a,
   section.new-posts .card .category,
-  #toc_container p.toc_title:before
+  #toc_container p.toc_title:before,
+  footer.entry-foot .categories a:hover,
+  .entry-content.content ul li:before,
+  .entry-content.content ol li:before
   {
     color:{$primaryColor};
   }";
@@ -32,6 +35,8 @@ function sentry_custom_css(){
     footer.entry-foot .categories a,
     section.comment input[name=submit],
     .wpcf7 .wpcf7-submit,
+    .tagcloud a:hover,
+    footer.entry-foot .tags a:hover,
     .sentry-bottom-nav .circle-button#btn-share,
     header.global-header nav .head-menu-nav-button
     {
