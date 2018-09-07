@@ -57,34 +57,32 @@
 				</aside>
 			<?php endif; ?>
 			<footer class="entry-foot">
-				<div class="categories">
+				<div class="cat_tag">
 					<?php
 					$categories = get_the_category();
 					$output = '';
 
 					if ( $categories ) {
+						$output .='<div class="categories">';
 						foreach( $categories as $category ) {
 							$output .= '<a class="button" href="' . get_category_link( $category->term_id )
 							. '" title="' . $category->name
 							. '">' . $category->name . '</a>';
 						}
-						echo $output;
+						$output .= '</div>';
 					}
-					?>
-				</div>
-				<div class="tags">
-					<?php
 					$tags = get_the_tags();
-					$output = '';
-
 					if ( $tags ) {
+						$output .='<div class="tags">';
 						foreach ( $tags as $tag ) {
 							$output .= '<a class="button" href="' . get_tag_link( $tag->term_id )
 							. '" title=' . $tag->name
 							. '">#' . $tag->name . '</a>';
 						}
-						echo $output;
+						$output .= '</div>';
 					}
+					
+					echo $output;
 					?>
 				</div>
 				<?php if ( !get_theme_mod( 'article_bottom' ) ) {
