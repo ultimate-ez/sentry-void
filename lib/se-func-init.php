@@ -41,7 +41,7 @@ remove_action( 'wp_print_styles', 'print_emoji_styles' ); // 絵文字
 
 if ( ! function_exists( 'sentry_enqueue_script' ) ) {
   function sentry_enqueue_script() {
-    wp_enqueue_script( 'sentry', get_template_directory_uri() . '/js/sentry.js' , array('jquery'), wp_theme_version(), true);
+    wp_enqueue_script( 'sentry', get_template_directory_uri() . '/js/sentry.js' , array('jquery', 'slick'), wp_theme_version(), true);
     wp_enqueue_style( 'font-awesome', '//use.fontawesome.com/releases/v5.0.13/css/all.css' );
     wp_enqueue_style( 'raleway', 'https://fonts.googleapis.com/css?family=Raleway');
     wp_enqueue_style( 'sentry', get_template_directory_uri().'/css/sentry.css', array(), wp_theme_version(), false );
@@ -56,6 +56,9 @@ if ( ! function_exists( 'sentry_enqueue_script' ) ) {
     if( ! is_singular() ) {
       wp_enqueue_script( 'wp_infinite_scroll' );
     }
+
+    //slick
+    wp_enqueue_script( 'slick', get_template_directory_uri() . '/js/slick.min.js' , array('jquery'), null, true);
   }
 }
 add_action( 'wp_enqueue_scripts', 'sentry_enqueue_script' );

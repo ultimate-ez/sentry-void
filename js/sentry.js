@@ -1,6 +1,45 @@
 jQuery(function($){
   $(function(){
 
+    // slick
+    $('.slider-wrapper__auto .slider-items').slick({
+      autoplay:true,
+      autoplaySpeed:3000,
+      arrows: false,
+      dots:true,
+      cssEase: 'ease-in-out',
+      inifinite: true,
+      slidesToShow:6,
+      slidesToScroll:1,
+      responsive: [
+        {
+          breakpoint: 1450,
+          settings: {
+            slidesToShow: 5,
+          }
+        },
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 4,
+          }
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 3,
+          }
+        },
+        {
+          breakpoint: 576,
+          settings: {
+            slidesToShow: 2,
+          }
+        }
+      ]
+    });
+    
+
     // /* Sticky Header & Footer */
     var $throttleTimeout = 200, // Sensitiity
         $hiddenClass = 'hidden', // Class Name to hide
