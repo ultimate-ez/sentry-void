@@ -80,18 +80,18 @@ if ( ! function_exists( 'sentry_sns_count_carry' ) ) {
 
 function sentry_feedly_subscribers($url) {
 
-  // if ( false === ( $subscribers = get_transient( 'sentry_feedly_subscribers' ) ) ) :
+  if ( false === ( $subscribers = get_transient( 'sentry_feedly_subscribers' ) ) ) :
 
-  //   $feed_url = rawurlencode( $url );
+    $feed_url = rawurlencode( $url );
 
-  //   $subscribers = wp_remote_get( "http://cloud.feedly.com/v3/feeds/feed%2F$feed_url" );
-  //   $subscribers = json_decode( $subscribers['body'] );
-  //   $subscribers = $subscribers->subscribers;
+    $subscribers = wp_remote_get( "http://cloud.feedly.com/v3/feeds/feed%2F$feed_url" );
+    $subscribers = json_decode( $subscribers['body'] );
+    $subscribers = $subscribers->subscribers;
 
-  //   set_transient( 'sentry_feedly_subscribers', $subscribers, 60 * 60 * 6 );
-  // endif;
+    set_transient( 'sentry_feedly_subscribers', $subscribers, 60 * 60 * 6 );
+  endif;
 
-  // return  sentry_sns_count_carry($subscribers);
+  return  sentry_sns_count_carry($subscribers);
 }
 
 //wppサムネイル取得先変更
