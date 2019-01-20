@@ -6,7 +6,7 @@ $title=rawurlencode(get_the_title());
 ?>
 
 <div class="sns-share sns-share-small">
-	<ul class="columns is-mobile grid">
+	<ul class="columns is-mobile grid is-10-grid">
 
 		<!--Facebookボタン-->
 		<li class="column is-2">
@@ -47,18 +47,6 @@ $title=rawurlencode(get_the_title());
 				<i class="fa se-hatebu"></i>
 			</a>
 			<script type="text/javascript" src="//b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
-		</li>
-
-		<!--Google+1ボタン-->
-		<li class="column is-2">
-			<?php
-			if(function_exists('get_scc_gplus')) {
-				echo '<div class="sns-count">'.sentry_sns_count_carry( scc_get_share_gplus() ).'</div>';
-			}
-			?>
-			<a class="button is-fill googleplus" target="_blank" href="https://plus.google.com/share?url=<?php echo get_permalink();?>">
-				<i class="fab fa-google-plus-g"></i>
-			</a>
 		</li>
 
 		<!--ポケットボタン-->

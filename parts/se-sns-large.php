@@ -10,7 +10,7 @@ $title=rawurlencode(get_the_title());
 	<ul class="columns grid is-multiline is-mobile">
 	<?php $sns_button_class = "button is-large is-fill"; ?>
 		<!--Facebookボタン-->
-		<li class="column is-6 is-4-tablet">
+		<li class="column is-6">
 			<a class="<?php echo $sns_button_class; ?> facebook" target="_blank" href="//www.facebook.com/sharer.php?src=bm&u=<?php echo get_permalink();?>">
 				<i class="fab fa-facebook-f"></i>
 				<span class="sharetext">いいね</span>
@@ -24,7 +24,7 @@ $title=rawurlencode(get_the_title());
 		</li>
 
 		<!--ツイートボタン-->
-		<li class="column is-6 is-4-tablet">
+		<li class="column is-6">
 			<a class="<?php echo $sns_button_class; ?>  twitter" onclick="window.open('//twitter.com/intent/tweet?url=<?php echo $url; ?>&text=<?php echo $title; ?><?php
 				if ( get_theme_mod( 'sentry_account_twitter' ) !=  '' ) {
 					echo '&via=';
@@ -53,19 +53,6 @@ $title=rawurlencode(get_the_title());
 			</a>
 			<script type="text/javascript" src="//b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
 		</li>
-		<!--Google+1ボタン-->
-		<li class="column is-6 is-4-tablet">
-			<a class="<?php echo $sns_button_class; ?> googleplus" target="_blank" href="https://plus.google.com/share?url=<?php echo get_permalink();?>">
-				<i class="fab fa-google-plus-g"></i>
-				<span class="sharetext">+1</span>
-				<?php
-				if(function_exists('get_scc_gplus')) {
-					echo '<span class="snscount">'.sentry_sns_count_carry( scc_get_share_gplus() ).'</span>';
-				}
-				?>
-			</a>
-		</li>
-
 		<!--ポケットボタン-->
 		<li class="column is-6 is-4-tablet">
 			<a class="<?php echo $sns_button_class; ?> pocket" onclick="window.open('//getpocket.com/edit?url=<?php echo $url;?>&title=<?php echo $title;?>', '', 'width=500,height=350'); return false;">
