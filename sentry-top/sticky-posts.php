@@ -11,7 +11,7 @@
 	<div class="<?php echo $slider_wrapper_class; ?>">
 	<?php
 	$sticky = count( get_option( 'sticky_posts' ) );
-	$item_cnt = 15 - $sticky;
+	$item_cnt = 15;
 
 	$args = array(
 		'posts_per_page' => $item_cnt,
@@ -25,6 +25,10 @@
 	<?php $loopcount = 0; ?>
 	<ul class="slider-items">
 	<?php while ( $the_query -> have_posts() ) : $the_query -> the_post(); ?>
+	<?php
+	if ( $loopcount > $item_cnt) :
+		break;
+	else:?>
 		<li class="slide-item">
 			<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
 				<figure class="thumbnail card">
@@ -42,6 +46,10 @@
 				</div>
 			</a>
 		</li>
+	<?php 
+		$loopcount++;
+		endif;
+	?>
 	<?php endwhile; ?>
 	</ul>
 	<?php if ( ( !wp_is_mobile() ) && ( !get_theme_mod( 'top_auto-scroll' ) ) ) : ?>
