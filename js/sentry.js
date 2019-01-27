@@ -182,44 +182,54 @@ jQuery(function($){
 
       $headerMenuLeftButton  = $('.head-menu-nav-button-left');
       $headerMenuRightButton = $('.head-menu-nav-button-right');
-      $headerMenuStepWidth = $window.width() / 2;
-      
-      checkHeaderMenuScrol();
-    
-      $headerMenuLeftButton.click(function(){
-        $headerMenuItems.stop(true, false).animate({scrollLeft:　$headerMenuItems.scrollLeft() - $headerMenuStepWidth}, 'slow', function(){
-          $headerMenuItems.queue([]);
-          $headerMenuItems.stop();
-        });
-      });
-      $headerMenuRightButton.click(function(){
-        $headerMenuItems.stop(true, false).animate({scrollLeft:　$headerMenuItems.scrollLeft() + $headerMenuStepWidth}, 'slow', function(){
-          $headerMenuItems.queue([]);
-          $headerMenuItems.stop();
-        });
-      });
 
-      $headerMenuItems.scroll(function(){
+      if ( ($headerMenuLeftButton.length) && ($headerMenuRightButton.leingh) ){
+
+        $headerMenuStepWidth = $window.width() / 2;
+      
         checkHeaderMenuScrol();
-      });
+      
+        $headerMenuLeftButton.click(function(){
+          $headerMenuItems.stop(true, false).animate({scrollLeft:　$headerMenuItems.scrollLeft() - $headerMenuStepWidth}, 'slow', function(){
+            $headerMenuItems.queue([]);
+            $headerMenuItems.stop();
+          });
+        });
+        $headerMenuRightButton.click(function(){
+          $headerMenuItems.stop(true, false).animate({scrollLeft:　$headerMenuItems.scrollLeft() + $headerMenuStepWidth}, 'slow', function(){
+            $headerMenuItems.queue([]);
+            $headerMenuItems.stop();
+          });
+        });
+
+        $headerMenuItems.scroll(function(){
+          checkHeaderMenuScrol();
+        });
+
+      }
     }
 
     function checkHeaderMenuScrol (){
       $firstItem = $('.head-menu-items .menu-item:first-child');
       $lastItem  = $('.head-menu-items .menu-item:last-child');
-      $firstItemPos = $firstItem.offset().left;
-      $lastItemPos  = $lastItem.offset().left + $lastItem.width();
 
-      if ( $firstItemPos < 0 ){
-        $headerMenuLeftButton.show();
-      } else {
-        $headerMenuLeftButton.hide();
-      }
+      if ( ($firstItem.length) && ($lastItem.length)){
+        
+        $firstItemPos = $firstItem.offset().left;
+        $lastItemPos  = $lastItem.offset().left + $lastItem.width();
 
-      if ( $lastItemPos < $window.width() + 10 ){
-        $headerMenuRightButton.hide();
-      } else {
-        $headerMenuRightButton.show();
+        if ( $firstItemPos < 0 ){
+          $headerMenuLeftButton.show();
+        } else {
+          $headerMenuLeftButton.hide();
+        }
+
+        if ( $lastItemPos < $window.width() + 10 ){
+          $headerMenuRightButton.hide();
+        } else {
+          $headerMenuRightButton.show();
+        }
+
       }
     }
 
