@@ -42,10 +42,10 @@ $title=rawurlencode(get_the_title());
 		</li>
 
 		<!--はてブボタン-->
-		<li class="column is-6 is-4-tablet">
+		<li class="column is-4">
 			<a class="<?php echo $sns_button_class; ?> hatebu" target="_blank" href="https://b.hatena.ne.jp/add?mode=confirm&url=<?php echo $url ?>&title=<?php echo $title ?>" onclick="window.open(this.href, 'HBwindow', 'width=600, height=400, menubar=no, toolbar=no, scrollbars=yes'); return false;" target="_blank">
 				<i class="fa se-hatebu"></i>
-				<span class="sharetext">はてブ</span>
+				<span class="sharetext is-mobile-hidden">はてブ</span>
 				<?php if(function_exists('get_scc_hatebu')) {
 					echo '<span class="snscount">'.sentry_sns_count_carry( scc_get_share_hatebu() ).'</span>';
 				}
@@ -54,10 +54,10 @@ $title=rawurlencode(get_the_title());
 			<script type="text/javascript" src="//b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
 		</li>
 		<!--ポケットボタン-->
-		<li class="column is-6 is-4-tablet">
+		<li class="column is-4">
 			<a class="<?php echo $sns_button_class; ?> pocket" onclick="window.open('//getpocket.com/edit?url=<?php echo $url;?>&title=<?php echo $title;?>', '', 'width=500,height=350'); return false;">
 				<i class="fab fa-get-pocket"></i>
-				<span class="sharetext">Pocket</span>
+				<span class="sharetext is-mobile-hidden">Pocket</span>
 				<?php
 				if(function_exists('get_scc_pocket')) {
 					echo '<span class="snscount">'.sentry_sns_count_carry( scc_get_share_pocket() ).'</span>';
@@ -67,7 +67,7 @@ $title=rawurlencode(get_the_title());
 		</li>
 
 		<!--LINEボタン-->
-		<li class="column is-6 is-4-tablet">
+		<li class="column is-4">
 			<a class="<?php echo $sns_button_class; ?> line" target="_blank" href="//line.me/R/msg/text/?<?php echo get_the_title() . '%0D%0A' . get_permalink();
 			if ( get_theme_mod( 'sentry_account_line' ) !=  '' ) {
 				echo '%0D%0D';
