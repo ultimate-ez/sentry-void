@@ -10,6 +10,8 @@ require_once ('customizer/se-customizer-article.php');
 
 require_once ('customizer/se-customizer-sns.php');
 
+require_once ('customizer/se-customizer-plugins.php');
+
 require_once ('customizer/se-customizer-amp.php');
 
 require_once ('customizer/se-customizer-pwa.php');

@@ -107,8 +107,8 @@ header.header .logo div{
 	border-bottom: 1px dashed;
 }
 #content .post amp-img{
-	display: block;
-	width: 100%;
+	width: auto;
+	height: auto;
 	max-width: 100%;
 }
 #content h2{
