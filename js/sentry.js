@@ -183,7 +183,7 @@ jQuery(function($){
       $headerMenuLeftButton  = $('.head-menu-nav-button-left');
       $headerMenuRightButton = $('.head-menu-nav-button-right');
 
-      if ( ($headerMenuLeftButton.length) && ($headerMenuRightButton.leingh) ){
+      if ( ($headerMenuLeftButton.length) && ($headerMenuRightButton.length) ){
 
         $headerMenuStepWidth = $window.width() / 2;
       
